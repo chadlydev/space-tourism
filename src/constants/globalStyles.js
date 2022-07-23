@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
+import { BREAKPOINTS } from './breakpoints';
 
 const GlobalStyles = createGlobalStyle`
   html {
     /////////////////////// COLORS ///////////////////////
     --color-dark-100: hsl(230, 35%, 7%);
-    --color-dark-200: hsl(0, 0%, 59%);
+    --color-dark-200: hsl(0, 0%, 30%);
     --color-light: hsl(0, 0%, 100%);
     --color-accent: hsl(231, 77%, 90%);
     --color-transparent: hsla(0, 0%, 100%, 0.04);
@@ -29,6 +30,33 @@ const GlobalStyles = createGlobalStyle`
     --margin-xxl: 16em;
     --margin-xxxl: 32em;
 
+    /////////////////////// FONT SIZES ///////////////////////
+    --font-size-heading-1: 80px;
+    --font-size-heading-2: 56px;
+    --font-size-heading-3: 24px;
+    --font-size-heading-4: 16px;
+    --font-size-heading-5: 16px;
+    --font-size-subheading-1: 28px;
+    --font-size-subheading-2: 14px;
+    --font-size-navlink: 16px;
+
+    @media screen and ${BREAKPOINTS.smMin} {
+      --font-size-heading-1: 150px;
+      --font-size-heading-2: 80px;
+      --font-size-heading-3: 40px;
+      --font-size-heading-4: 24px;
+      --font-size-heading-5: 20px;
+      --font-size-navlink: 14px;
+    }
+
+    @media screen and ${BREAKPOINTS.lgMin} {
+      --font-size-heading-2: 100px;
+      --font-size-heading-3: 56px;
+      --font-size-heading-4: 32px;
+      --font-size-heading-5: 28px;
+      --font-size-navlink: 16px;
+    }
+
     /////////////////////// FONT WEIGHTS ///////////////////////
     --font-regular: 400;
     --font-bold: 700;
@@ -47,13 +75,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 150px;
+    font-size: var(--font-size-heading-1);
   }
 
   h2 {
-    font-size: 100px;
+    font-size: var(--font-size-heading-2);
   }
-  
+
   h3 {
     font-size: 56px;
   }
@@ -89,6 +117,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Barlow', sans-serif;
     background-color: var(--color-dark-100);
     color: var(--color-light);
+    max-height: 100vh;
+    max-width: 100vw;
   }
 
   img, picture, video, canvas, svg {
