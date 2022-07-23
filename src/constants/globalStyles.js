@@ -43,6 +43,7 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5 {
     font-family: 'Bellefair', serif;
     font-weight: var(--font-regular);
+    text-transform: uppercase;
   }
 
   h1 {
