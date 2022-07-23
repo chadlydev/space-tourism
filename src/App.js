@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyles from './constants/globalStyles';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <>
+            <GlobalStyles />
+            <h1>EARTH</h1>
+            <h2>VENUS</h2>
+            <h3>JUPITER & SATURN</h3>
+            <h4>URANUS, NEPTUNE & PLUTO</h4>
+            <h5>SO, YOU WANT TO TRAVEL TO SPACE</h5>
+        </>
+    );
+};
 
 export default App;
