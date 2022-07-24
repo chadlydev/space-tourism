@@ -2,6 +2,7 @@ import styled from 'styled-components/macro';
 import { Background as Bg } from '../../components/common/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { ExploreButton } from './ExploreButton';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -18,7 +19,9 @@ const Home = () => {
                         we’ll give you a truly out of this world experience!
                     </P>
                 </Banner>
-                <ExploreButton type='button'>Explore</ExploreButton>
+                <ExploreButton as={Link} to='/destination' type='button'>
+                    Explore
+                </ExploreButton>
             </Container>
         </>
     );

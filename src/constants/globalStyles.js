@@ -112,6 +112,10 @@ const GlobalStyles = createGlobalStyle`
       line-height: 32px;
     }
   }
+  
+  a {
+    text-decoration: none;
+  }
 
 
   /////////////////////// CSS Reset

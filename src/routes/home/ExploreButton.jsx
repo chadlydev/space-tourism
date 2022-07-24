@@ -5,7 +5,7 @@ export const ExploreButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    cursor: pointer;
     border-radius: 100%;
     border: none;
     color: var(--color-dark);
