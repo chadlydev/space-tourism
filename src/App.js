@@ -5,11 +5,10 @@ import Destination from './routes/destination/Destination';
 import Crew from './routes/crew/Crew';
 import Technology from './routes/technology/Technology';
 import NavBar from './components/nav/NavBar';
-import Div100vh from 'react-div-100vh';
 
 const App = () => {
     return (
-        <Div100vh>
+        <>
             <GlobalStyles />
             <NavBar />
             <Routes>
@@ -22,7 +21,7 @@ const App = () => {
                 <Route path='crew' element={<Crew />} />
                 <Route path='technology' element={<Technology />} />
             </Routes>
-        </Div100vh>
+        </>
     );
 };
 
