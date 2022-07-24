@@ -3,10 +3,11 @@ import { Background as Bg } from '../../components/common/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { ExploreButton } from './ExploreButton';
 import { Link } from 'react-router-dom';
+import Div100vh from 'react-div-100vh';
 
 const Home = () => {
     return (
-        <>
+        <Div100vh>
             <Background />
             <Container>
                 <Banner>
@@ -23,7 +24,7 @@ const Home = () => {
                     Explore
                 </ExploreButton>
             </Container>
-        </>
+        </Div100vh>
     );
 };
 
