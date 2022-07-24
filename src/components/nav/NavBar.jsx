@@ -139,6 +139,7 @@ const InnerContainer = styled.div`
 const Nav = styled.nav`
     background-color: var(--color-transparent);
     backdrop-filter: blur(20px);
+    z-index: 10;
 
     @media screen and ${BREAKPOINTS.sm} {
         position: absolute;
@@ -184,7 +185,7 @@ const Line = styled.div`
     height: 1px;
     width: 100%;
     margin-right: -30px;
-    z-index: 10;
+    z-index: 100;
     background-color: var(--color-light-200);
     @media screen and ${BREAKPOINTS.lg} {
         display: none;
