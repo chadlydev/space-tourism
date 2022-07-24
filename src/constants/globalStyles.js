@@ -139,6 +139,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--color-light-100);
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
   }
 
   img, picture, video, canvas, svg {
