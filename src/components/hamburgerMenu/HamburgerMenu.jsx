@@ -37,7 +37,7 @@ const Div = styled.div`
         z-index: 100;
 
         &::before,
-        &::after {
+        &:after {
             content: '';
             position: absolute;
             width: 24px;
@@ -47,7 +47,7 @@ const Div = styled.div`
             transform: translateY(-7.5px);
         }
 
-        &::after {
+        &:after {
             transform: translateY(7.5px);
         }
     }
@@ -68,7 +68,7 @@ const Div = styled.div`
         &.open .menu-btn__burger::before {
             transform: rotate(45deg);
         }
-        &.open .menu-btn__burger::after {
+        &.open .menu-btn__burger:after {
             transform: rotate(-45deg);
         }
     }

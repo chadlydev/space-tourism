@@ -183,9 +183,9 @@ const Li = styled.li``;
 const Line = styled.div`
     height: 1px;
     width: 100%;
-    margin-right: -24px;
+    margin-right: -30px;
     z-index: 10;
-    background-color: var(--color-dark-200);
+    background-color: var(--color-light-200);
     @media screen and ${BREAKPOINTS.lg} {
         display: none;
     }

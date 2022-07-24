@@ -4,9 +4,9 @@ import { BREAKPOINTS } from './breakpoints';
 const GlobalStyles = createGlobalStyle`
   html {
     /////////////////////// COLORS ///////////////////////
-    --color-dark-100: hsl(230, 35%, 7%);
-    --color-dark-200: hsl(0, 0%, 30%);
-    --color-light: hsl(0, 0%, 100%);
+    --color-dark: hsl(230, 35%, 7%);
+    --color-light-100: hsl(0, 0%, 100%);
+    --color-light-200: hsla(0, 0%, 100%, 0.4);
     --color-accent: hsl(231, 77%, 90%);
     --color-transparent: hsla(0, 0%, 100%, 0.04);
 
@@ -39,6 +39,7 @@ const GlobalStyles = createGlobalStyle`
     --font-size-subheading-1: 28px;
     --font-size-subheading-2: 14px;
     --font-size-navlink: 16px;
+    --font-size-paragraph: 15px;
 
     @media screen and ${BREAKPOINTS.smMin} {
       --font-size-heading-1: 150px;
@@ -47,6 +48,7 @@ const GlobalStyles = createGlobalStyle`
       --font-size-heading-4: 24px;
       --font-size-heading-5: 20px;
       --font-size-navlink: 14px;
+      --font-size-paragraph: 16px;
     }
 
     @media screen and ${BREAKPOINTS.lgMin} {
@@ -55,6 +57,8 @@ const GlobalStyles = createGlobalStyle`
       --font-size-heading-4: 32px;
       --font-size-heading-5: 28px;
       --font-size-navlink: 16px;
+      --font-size-paragraph: 18px;
+
     }
 
     /////////////////////// FONT WEIGHTS ///////////////////////
@@ -83,18 +87,30 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h3 {
-    font-size: 56px;
+    font-size: var(--font-size-heading-3);
   }
 
   h4 {
-    font-size: 32px;
+    font-size: var(--font-size-heading-4);
   }
 
   h5 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
+    font-size: var(--font-size-heading-5);
     color: var(--color-accent);
     letter-spacing: 4px;
+  }
+
+  p {
+    font-size: var(--font-size-paragraph);
+    color: var(--color-accent);
+    line-height: 25px;
+    @media screen and ${BREAKPOINTS.smMin} {
+      line-height: 28px;
+    }
+      @media screen and ${BREAKPOINTS.lgMin} {
+      line-height: 32px;
+    }
   }
 
 
@@ -116,7 +132,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     font-family: 'Barlow', sans-serif;
     background-color: var(--color-dark-100);
-    color: var(--color-light);
+    color: var(--color-light-100);
     max-height: 100vh;
     max-width: 100vw;
   }

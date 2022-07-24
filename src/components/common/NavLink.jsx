@@ -48,20 +48,19 @@ export const NavLink = styled(Link)`
     font-family: 'Barlow Condensed', sans-serif;
     font-size: var(--font-size-navlink);
     letter-spacing: 2.7px;
-    color: var(--color-light);
+    color: var(--color-light-100);
     text-decoration: none;
     text-transform: uppercase;
     display: flex;
     gap: var(--padding-xs);
+    position: relative;
     @media screen and ${BREAKPOINTS.sm} {
         padding-block: 6px;
         border-right: 4px solid transparent;
     }
 
     @media screen and ${BREAKPOINTS.smMin} {
-        padding-block: 36px;
-        border-bottom: 3px solid transparent;
-        border-top: 3px solid transparent;
+        padding-block: 38.5px;
     }
 
     span {
@@ -76,10 +75,46 @@ export const NavLink = styled(Link)`
     }
 
     &.active {
-        border-bottom-color: var(--color-light);
-        border-right-color: var(--color-light);
-    }
+        @media screen and ${BREAKPOINTS.sm} {
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 4px;
+                height: 100%;
+                background-color: var(--color-light-100);
+            }
+        }
 
-    &.inactive {
+        @media screen and ${BREAKPOINTS.smMin} {
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                height: 3px;
+                width: 100%;
+                background-color: var(--color-light-100);
+            }
+        }
+    }
+    @media screen and ${BREAKPOINTS.lgMin} {
+        &.inactive {
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                height: 3px;
+                right: 0;
+                width: 0;
+                background-color: var(--color-light-200);
+                transition: 0.3s ease-in-out;
+            }
+
+            &:hover:after {
+                width: 100%;
+                left: 0;
+            }
+        }
     }
 `;
