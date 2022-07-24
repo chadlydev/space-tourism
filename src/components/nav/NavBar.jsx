@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { useLayoutEffect, useState } from 'react';
-import HamburgerMenu from '../hamburgerMenu/HamburgerMenu';
+import HamburgerMenu from './HamburgerMenu';
 
 const NavBar = () => {
     const [openMenu, toggleOpenMenu] = useState(false);

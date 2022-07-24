@@ -137,7 +137,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Barlow', sans-serif;
     background-color: var(--color-dark-100);
     color: var(--color-light-100);
-    height: 100vh;
     height: var(--windowInnerHeight, 100vh);
     width: 100vw;
     overflow: hidden;
