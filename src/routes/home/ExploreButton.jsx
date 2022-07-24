@@ -13,13 +13,13 @@ export const ExploreButton = styled.button`
     font-family: 'Bellefair', serif;
     text-transform: uppercase;
     font-size: 32px;
+    bottom: 48px;
+    position: absolute;
 
     @media screen and ${BREAKPOINTS.sm} {
         width: 150px;
         height: 150px;
         font-size: 20px;
-        //display: none;
-        margin-bottom: 50px;
     }
 
     @media screen and ${BREAKPOINTS.smMin} {
@@ -28,8 +28,10 @@ export const ExploreButton = styled.button`
     }
 
     @media screen and ${BREAKPOINTS.lgMin} {
+        position: relative;
         width: 274px;
         height: 274px;
+        bottom: 0;
         &:after {
             content: '';
             position: absolute;
