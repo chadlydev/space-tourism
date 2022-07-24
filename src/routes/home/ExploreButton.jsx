@@ -18,6 +18,7 @@ export const ExploreButton = styled.button`
         width: 150px;
         height: 150px;
         font-size: 20px;
+        //display: none;
     }
 
     @media screen and ${BREAKPOINTS.smMin} {

@@ -5,11 +5,39 @@ import Destination from './routes/destination/Destination';
 import Crew from './routes/crew/Crew';
 import Technology from './routes/technology/Technology';
 import NavBar from './components/nav/NavBar';
-import Div100vh from 'react-div-100vh';
+import { useLayoutEffect } from 'react';
+import { useState } from 'react';
 
 const App = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    function checkIfMobile() {
+        if (window.innerWidth < 1024) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    }
+
+    function handleResize() {
+        const windowInnerHeight = window.innerHeight;
+        document.documentElement.style.setProperty(
+            '--windowInnerHeight',
+            `${windowInnerHeight}px`
+        );
+    }
+
+    useLayoutEffect(() => {
+        checkIfMobile();
+
+        if (isMobile) {
+            window.addEventListener('resize', handleResize());
+        }
+    }, []);
+
+    console.log(isMobile);
     return (
-        <Div100vh>
+        <>
             <GlobalStyles />
             <NavBar />
             <Routes>
@@ -22,7 +50,7 @@ const App = () => {
                 <Route path='crew' element={<Crew />} />
                 <Route path='technology' element={<Technology />} />
             </Routes>
-        </Div100vh>
+        </>
     );
 };
 

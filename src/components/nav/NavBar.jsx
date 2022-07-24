@@ -144,7 +144,7 @@ const Nav = styled.nav`
         position: absolute;
         top: -24px;
         right: 0;
-        height: 100vh;
+        height: var(--windowInnerHeight);
         width: 65vw;
         padding-top: 20vh;
         padding-left: 32px;

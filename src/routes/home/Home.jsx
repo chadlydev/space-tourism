@@ -3,11 +3,10 @@ import { Background as Bg } from '../../components/common/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { ExploreButton } from './ExploreButton';
 import { Link } from 'react-router-dom';
-import Div100vh from 'react-div-100vh';
 
 const Home = () => {
     return (
-        <Div100vh>
+        <>
             <Background />
             <Container>
                 <Banner>
@@ -24,7 +23,7 @@ const Home = () => {
                     Explore
                 </ExploreButton>
             </Container>
-        </Div100vh>
+        </>
     );
 };
 
@@ -52,7 +51,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: var(--windowInnerHeight, 100vh);
     padding-top: 112px;
     padding-bottom: 48px;
 
@@ -64,7 +63,7 @@ const Container = styled.div`
     @media screen and ${BREAKPOINTS.lgMin} {
         flex-direction: row;
         width: 80vw;
-        height: clamp(900px, 100vh, 1400px);
+        height: clamp(900px, var(--windowInnerHeight, 100vh), 1400px);
         margin-inline: auto;
         justify-content: space-between;
         align-items: flex-end;
