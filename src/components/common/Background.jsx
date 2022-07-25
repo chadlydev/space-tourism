@@ -1,11 +1,32 @@
 import styled from 'styled-components/macro';
+import { BREAKPOINTS } from '../../constants/breakpoints';
 
-export const Background = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+const Background = ({ children, page }) => {
+    return <Bg page={page}>{children}</Bg>;
+};
+
+export default Background;
+
+const Bg = styled.div`
+    background: url('/assets/${p => p.page}/background-${p =>
+            p.page}-mobile.jpg')
+        center no-repeat;
     background-size: cover;
+    margin-top: -72px;
+
+    @media screen and ${BREAKPOINTS.tablet} {
+        background: url('/assets/${p => p.page}/background-${p =>
+                p.page}-tablet.jpg')
+            center no-repeat;
+        background-size: cover;
+        margin-top: -94px;
+    }
+
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        background: url('/assets/${p => p.page}/background-${p =>
+                p.page}-desktop.jpg')
+            no-repeat;
+        background-size: cover;
+        margin-top: -136px;
+    }
 `;

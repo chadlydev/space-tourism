@@ -41,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
     --font-size-navlink: 16px;
     --font-size-paragraph: 15px;
 
-    @media screen and ${BREAKPOINTS.smMin} {
+    @media screen and ${BREAKPOINTS.tablet} {
       --font-size-heading-1: 150px;
       --font-size-heading-2: 80px;
       --font-size-heading-3: 40px;
@@ -51,7 +51,7 @@ const GlobalStyles = createGlobalStyle`
       --font-size-paragraph: 16px;
     }
 
-    @media screen and ${BREAKPOINTS.lgMin} {
+    @media screen and ${BREAKPOINTS.smDesktop} {
       --font-size-heading-2: 100px;
       --font-size-heading-3: 56px;
       --font-size-heading-4: 32px;
@@ -72,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   /////////////////////// TYPOGRAPHY ///////////////////////
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Bellefair', serif;
     font-weight: var(--font-regular);
     text-transform: uppercase;
@@ -100,15 +100,22 @@ const GlobalStyles = createGlobalStyle`
     color: var(--color-accent);
     letter-spacing: 4px;
   }
+  
+  h6 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: var(--font-size-subheading-2);
+    color: var(--color-accent);
+    letter-spacing: 2.35px;
+  }
 
   p {
     font-size: var(--font-size-paragraph);
     color: var(--color-accent);
     line-height: 25px;
-    @media screen and ${BREAKPOINTS.smMin} {
+    @media screen and ${BREAKPOINTS.tablet} {
       line-height: 28px;
     }
-      @media screen and ${BREAKPOINTS.lgMin} {
+      @media screen and ${BREAKPOINTS.smDesktop} {
       line-height: 32px;
     }
   }
@@ -117,6 +124,9 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  span {
+    font-weight: var(--font-bold);
+  }
 
   /////////////////////// CSS Reset
   *, *::before, *::after {
@@ -135,11 +145,9 @@ const GlobalStyles = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     font-family: 'Barlow', sans-serif;
-    background-color: var(--color-dark-100);
     color: var(--color-light-100);
+    background-color: var(--color-dark);
     height: var(--windowInnerHeight, 100vh);
-    width: 100vw;
-    overflow: hidden;
   }
 
   img, picture, video, canvas, svg {

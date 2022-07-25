@@ -37,13 +37,6 @@ const Link = ({
     return <L className={allClassNames} to={to} {...rest} />;
 };
 
-/*
-
-//////////////////// STYLING
-
-
- */
-
 export const NavLink = styled(Link)`
     font-family: 'Barlow Condensed', sans-serif;
     font-size: var(--font-size-navlink);
@@ -51,54 +44,15 @@ export const NavLink = styled(Link)`
     color: var(--color-light-100);
     text-decoration: none;
     text-transform: uppercase;
-    display: flex;
-    gap: var(--padding-xs);
     position: relative;
-    @media screen and ${BREAKPOINTS.sm} {
-        padding-block: 6px;
-        border-right: 4px solid transparent;
-    }
 
-    @media screen and ${BREAKPOINTS.smMin} {
-        padding-block: 38.5px;
-    }
-
-    span {
-        font-weight: var(--font-bold);
-        @media screen and ${BREAKPOINTS.smMin} {
+    @media screen and ${BREAKPOINTS.tablet} {
+        span {
             display: none;
         }
-
-        @media screen and ${BREAKPOINTS.lgMin} {
-            display: inline;
-        }
     }
 
-    &.active {
-        @media screen and ${BREAKPOINTS.sm} {
-            &:after {
-                content: '';
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: 4px;
-                height: 100%;
-                background-color: var(--color-light-100);
-            }
-        }
-
-        @media screen and ${BREAKPOINTS.smMin} {
-            &:after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                height: 3px;
-                width: 100%;
-                background-color: var(--color-light-100);
-            }
-        }
-    }
-    @media screen and ${BREAKPOINTS.lgMin} {
+    @media screen and ${BREAKPOINTS.smDesktop} {
         &.inactive {
             &:after {
                 content: '';
@@ -115,6 +69,68 @@ export const NavLink = styled(Link)`
                 width: 100%;
                 left: 0;
             }
+        }
+    }
+
+    // NAVBAR
+    &.navbar {
+        display: flex;
+        gap: var(--padding-xs);
+        padding-block: 6px;
+        border-right: 4px solid transparent;
+
+        @media screen and ${BREAKPOINTS.tablet} {
+            padding-block: 38.5px;
+        }
+
+        @media screen and ${BREAKPOINTS.smDesktop} {
+            span {
+                display: inline;
+            }
+        }
+
+        &--active {
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 4px;
+                height: 100%;
+                background-color: var(--color-light-100);
+            }
+
+            @media screen and ${BREAKPOINTS.tablet} {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 3px;
+                    width: 100%;
+                    background-color: var(--color-light-100);
+                }
+            }
+        }
+    }
+
+    // DESTINATION PAGE
+    &.destination {
+        color: var(--color-accent);
+        padding-bottom: 1rem;
+
+        &--active {
+            color: var(--color-light-100);
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                height: 3px;
+                width: 100%;
+                background-color: var(--color-light-100);
+            }
+        }
+
+        &--inactive {
         }
     }
 `;

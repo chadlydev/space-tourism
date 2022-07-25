@@ -25,10 +25,6 @@ const HamburgerMenu = ({ openMenu, toggleOpenMenu }) => {
 export default HamburgerMenu;
 
 const Div = styled.div`
-    @media screen and ${BREAKPOINTS.smMin} {
-        display: none;
-    }
-
     &.menu-btn__burger {
         width: 24px;
         height: 3px;
@@ -62,7 +58,6 @@ const Div = styled.div`
         transition: all 0.5s ease-in-out;
 
         &.open .menu-btn__burger {
-            //transform: translateX(-24px);
             background: transparent;
         }
         &.open .menu-btn__burger::before {
@@ -70,6 +65,13 @@ const Div = styled.div`
         }
         &.open .menu-btn__burger:after {
             transform: rotate(-45deg);
+        }
+    }
+
+    @media screen and ${BREAKPOINTS.tablet} {
+        &.menu-btn__burger,
+        &.menu-btn {
+            display: none;
         }
     }
 `;

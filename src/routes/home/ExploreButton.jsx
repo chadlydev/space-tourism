@@ -9,25 +9,23 @@ export const ExploreButton = styled.button`
     border-radius: 100%;
     border: none;
     color: var(--color-dark);
-    background: white;
+    background: var(--color-light-100);
     font-family: 'Bellefair', serif;
     text-transform: uppercase;
-    font-size: 32px;
     bottom: 48px;
     position: absolute;
+    width: 150px;
+    height: 150px;
+    font-size: 20px;
 
-    @media screen and ${BREAKPOINTS.sm} {
-        width: 150px;
-        height: 150px;
-        font-size: 20px;
-    }
-
-    @media screen and ${BREAKPOINTS.smMin} {
+    @media screen and ${BREAKPOINTS.tablet} {
+        font-size: 32px;
+        bottom: 90px;
         width: 242px;
         height: 242px;
     }
 
-    @media screen and ${BREAKPOINTS.lgMin} {
+    @media screen and ${BREAKPOINTS.smDesktop} {
         position: relative;
         width: 274px;
         height: 274px;
@@ -35,15 +33,11 @@ export const ExploreButton = styled.button`
         &:after {
             content: '';
             position: absolute;
-            z-index: -1;
+            z-index: 0;
             width: 274px;
             height: 274px;
             border-radius: 100%;
             transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            -ms-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -webkit-transition: all 0.3s ease-in-out;
             border: 0 solid hsla(0, 0%, 100%, 0.15);
         }
 

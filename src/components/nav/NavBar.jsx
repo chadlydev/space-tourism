@@ -2,192 +2,163 @@ import { NavLink } from '../common/NavLink';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { BREAKPOINTS } from '../../constants/breakpoints';
-import { useLayoutEffect, useState } from 'react';
 import HamburgerMenu from './HamburgerMenu';
+import useHandleResize from './useHandleResize';
+import { Divider } from '../common/Divider';
 
 const NavBar = () => {
-    const [openMenu, toggleOpenMenu] = useState(false);
-    const [mobile, setMobile] = useState(false);
-
-    useLayoutEffect(() => {
-        function handleResize() {
-            if (window.innerWidth >= 540) {
-                toggleOpenMenu(true);
-                setMobile(false);
-            }
-            if (window.innerWidth < 540) {
-                toggleOpenMenu(false);
-                setMobile(true);
-            }
-        }
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
-    }, []);
-
+    const { openMenu, mobile, toggleOpenMenu } = useHandleResize();
     return (
-        <OuterContainer>
-            <InnerContainer>
-                <Line />
-                <Link to='home'>
-                    <img src='/assets/shared/logo.svg' alt='logo' />
-                </Link>
-                <HamburgerMenu
-                    openMenu={openMenu}
-                    toggleOpenMenu={toggleOpenMenu}
-                />
-                {openMenu && (
-                    <Nav>
-                        <Ul>
-                            <Li
-                                onClick={
-                                    mobile ? () => toggleOpenMenu(false) : null
-                                }
+        <Wrapper>
+            <Line />
+            <Link to='home'>
+                <img src='/assets/shared/logo.svg' alt='logo' />
+            </Link>
+            <HamburgerMenu
+                openMenu={openMenu}
+                toggleOpenMenu={toggleOpenMenu}
+            />
+            {openMenu && (
+                <Nav>
+                    <ul>
+                        <li
+                            onClick={
+                                mobile ? () => toggleOpenMenu(false) : null
+                            }
+                        >
+                            <NavLink
+                                to='home'
+                                className='navbar'
+                                activeClassName='navbar--active'
+                                inactiveClassName='inactive'
                             >
-                                <NavLink
-                                    to='home'
-                                    activeClassName='active'
-                                    inactiveClassName='inactive'
-                                >
-                                    <span>00</span>Home
-                                </NavLink>
-                            </Li>
-                            <Li
-                                onClick={
-                                    mobile ? () => toggleOpenMenu(false) : null
-                                }
+                                <span>00</span>Home
+                            </NavLink>
+                        </li>
+                        <li
+                            onClick={
+                                mobile ? () => toggleOpenMenu(false) : null
+                            }
+                        >
+                            <NavLink
+                                to='destination'
+                                className='navbar'
+                                activeClassName='navbar--active'
+                                inactiveClassName='inactive'
                             >
-                                <NavLink
-                                    to='destination'
-                                    activeClassName='active'
-                                    inactiveClassName='inactive'
-                                >
-                                    <span>01</span>Destination
-                                </NavLink>
-                            </Li>
-                            <Li
-                                onClick={
-                                    mobile ? () => toggleOpenMenu(false) : null
-                                }
+                                <span>01</span>Destination
+                            </NavLink>
+                        </li>
+                        <li
+                            onClick={
+                                mobile ? () => toggleOpenMenu(false) : null
+                            }
+                        >
+                            <NavLink
+                                to='crew'
+                                className='navbar'
+                                activeClassName='navbar--active'
+                                inactiveClassName='inactive'
                             >
-                                <NavLink
-                                    to='crew'
-                                    activeClassName='active'
-                                    inactiveClassName='inactive'
-                                >
-                                    <span>02</span>Crew
-                                </NavLink>
-                            </Li>
-                            <Li
-                                onClick={
-                                    mobile ? () => toggleOpenMenu(false) : null
-                                }
+                                <span>02</span>Crew
+                            </NavLink>
+                        </li>
+                        <li
+                            onClick={
+                                mobile ? () => toggleOpenMenu(false) : null
+                            }
+                        >
+                            <NavLink
+                                to='technology'
+                                className='navbar'
+                                activeClassName='navbar--active'
+                                inactiveClassName='inactive'
                             >
-                                <NavLink
-                                    to='technology'
-                                    activeClassName='active'
-                                    inactiveClassName='inactive'
-                                >
-                                    <span>03</span>Technology
-                                </NavLink>
-                            </Li>
-                        </Ul>
-                    </Nav>
-                )}
-            </InnerContainer>
-        </OuterContainer>
+                                <span>03</span>Technology
+                            </NavLink>
+                        </li>
+                    </ul>
+                </Nav>
+            )}
+        </Wrapper>
     );
 };
 
 export default NavBar;
 
-const OuterContainer = styled.div`
-    display: flex;
-    align-items: center;
-    position: absolute;
-    margin-top: 24px;
-
-    @media screen and ${BREAKPOINTS.smMin} {
-        margin: 0;
-    }
-
-    @media screen and ${BREAKPOINTS.lgMin} {
-        margin-top: 40px;
-    }
-`;
-
-const InnerContainer = styled.div`
-    width: 90vw;
-    margin-inline: 5vw;
+const Wrapper = styled.div`
+    padding-top: 24px;
+    padding-inline: 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
-    @media screen and ${BREAKPOINTS.lgMin} {
-        justify-content: space-between;
-        width: 80vw;
-        margin-inline: 10vw;
+    @media screen and ${BREAKPOINTS.tablet} {
+        padding-top: 0;
+    }
+
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        padding-top: 40px;
+        padding-inline: 10vw;
 
         img {
             position: absolute;
-            left: 4vw;
-            top: 25%;
+            left: 2.5vw;
+            top: 64px;
         }
     }
 `;
 
 const Nav = styled.nav`
+    position: fixed;
+    width: 65vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
     background-color: var(--color-transparent);
     backdrop-filter: blur(20px);
     z-index: 10;
+    padding-top: 20vh;
+    padding-left: 32px;
 
-    @media screen and ${BREAKPOINTS.sm} {
-        position: absolute;
-        top: -24px;
-        right: 0;
-        height: var(--windowInnerHeight, 100vh);
-        width: 65vw;
-        padding-top: 20vh;
-        padding-left: 32px;
-    }
-
-    @media screen and ${BREAKPOINTS.smMin} {
+    @media screen and ${BREAKPOINTS.tablet} {
         position: relative;
-        margin-right: -5vw;
+        height: auto;
+        width: auto;
+        top: 0;
+        padding-top: 0;
+        padding-left: 0;
         padding-inline: 5vw;
+        margin-right: -5vw;
     }
 
-    @media screen and ${BREAKPOINTS.lgMin} {
+    @media screen and ${BREAKPOINTS.smDesktop} {
         padding-inline: 10vw;
         margin-right: -10vw;
     }
-`;
 
-const Ul = styled.ul`
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 20px;
-
-    @media screen and ${BREAKPOINTS.smMin} {
-        flex-direction: row;
-        gap: 36px;
-    }
-
-    @media screen and ${BREAKPOINTS.lgMin} {
-        gap: 48px;
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 20px;
+        @media screen and ${BREAKPOINTS.tablet} {
+            flex-direction: row;
+            gap: 36px;
+        }
+        @media screen and ${BREAKPOINTS.smDesktop} {
+            gap: 48px;
+        }
     }
 `;
 
-const Li = styled.li``;
-
-const Line = styled.div`
-    height: 1px;
-    width: 100%;
-    margin-right: -30px;
-    z-index: 100;
-    background-color: var(--color-light-200);
-    @media screen and ${BREAKPOINTS.lg} {
-        display: none;
+const Line = styled(Divider)`
+    display: none;
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        display: inline;
+        background-color: var(--color-light-200);
+        margin-right: -30px;
+        z-index: 100;
     }
 `;
