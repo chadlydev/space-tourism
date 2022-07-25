@@ -10,6 +10,7 @@ const useSetMobileHeight = () => {
             setIsMobile(false);
         }
     }
+    console.log(isMobile);
 
     useLayoutEffect(() => {
         checkIfMobile();
@@ -20,6 +21,7 @@ const useSetMobileHeight = () => {
                 '--windowInnerHeight',
                 `${windowInnerHeight}px`
             );
+            console.log(windowInnerHeight);
         }
     }, []);
 
