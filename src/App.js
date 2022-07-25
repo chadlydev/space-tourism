@@ -5,7 +5,7 @@ import Destination from './routes/destination/Destination';
 import Crew from './routes/crew/Crew';
 import Technology from './routes/technology/Technology';
 import NavBar from './components/nav/NavBar';
-import useSetMobileHeight from './hooks/useSetMobileHeight';
+import useSetInnerHeight from './hooks/useSetInnerHeight';
 import Commander from './routes/crew/Commander';
 import MissionSpecialist from './routes/crew/MissionSpecialist';
 import Pilot from './routes/crew/Pilot';
@@ -15,7 +15,7 @@ import Spaceport from './routes/technology/Spaceport';
 import SpaceCapsule from './routes/technology/SpaceCapsule';
 
 const App = () => {
-    useSetMobileHeight();
+    useSetInnerHeight();
     return (
         <>
             <GlobalStyles />

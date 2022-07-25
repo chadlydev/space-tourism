@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom';
 import Background from '../../components/common/Background';
 
 const Home = () => {
-    const innerHeight = window.innerHeight;
-
     return (
         <Background page='home'>
-            <Wrapper height={innerHeight}>
+            <Wrapper>
                 <Banner>
                     <h5>So, you want to travel to</h5>
                     <h1>Space</h1>
@@ -35,7 +33,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: ${p => p.height}px;
+    height: var(--windowInnerHeight, 100vh);
     padding-inline: 5vw;
     padding-top: 120px;
     padding-bottom: 48px;
