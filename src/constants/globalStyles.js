@@ -146,8 +146,8 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     font-family: 'Barlow', sans-serif;
     color: var(--color-light-100);
-    background-color: var(--color-dark);
-    height: var(--windowInnerHeight, 100vh);
+    background-color: var(--color-light-100);
+    //height: var(--windowInnerHeight, 100vh);
   }
 
   img, picture, video, canvas, svg {
