@@ -13,6 +13,7 @@ const Bg = styled.div`
         center no-repeat;
     background-size: cover;
     margin-top: -72px;
+    min-height: var(--windowInnerHeight);
 
     @media screen and ${BREAKPOINTS.tablet} {
         background: url('/assets/${p => p.page}/background-${p =>

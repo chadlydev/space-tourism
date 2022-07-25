@@ -16,6 +16,10 @@ const useSetMobileHeight = () => {
         checkIfMobile();
 
         if (isMobile) {
+            window.addEventListener('resize', setInnerHeight);
+        }
+
+        function setInnerHeight() {
             const windowInnerHeight = window.innerHeight;
             document.documentElement.style.setProperty(
                 '--windowInnerHeight',
