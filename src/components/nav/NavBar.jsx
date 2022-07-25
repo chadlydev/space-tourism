@@ -11,9 +11,7 @@ const NavBar = () => {
     return (
         <Wrapper>
             <Line />
-            <Link to='home'>
-                <img src='/assets/shared/logo.svg' alt='logo' />
-            </Link>
+            <img src='/assets/shared/logo.svg' alt='logo' />
             <HamburgerMenu
                 openMenu={openMenu}
                 toggleOpenMenu={toggleOpenMenu}
