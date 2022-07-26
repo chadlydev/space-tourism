@@ -127,6 +127,7 @@ const Wrapper = styled(W)`
         height: var(--windowInnerHeight, 100vh);
         justify-content: flex-end;
         padding-top: 142px;
+        padding-inline: 10vw;
         gap: 40px;
         img {
             width: 300px;
@@ -227,6 +228,7 @@ const Right = styled.div`
     flex-direction: column;
     gap: 32px;
     align-items: center;
+    width: 100%;
     @media screen and ${BREAKPOINTS.smDesktop} {
         align-items: flex-start;
         flex-basis: 30%;
