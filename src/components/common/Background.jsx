@@ -11,8 +11,6 @@ const Bg = styled.div`
     background: url('/assets/${p => p.page}/background-${p =>
             p.page}-mobile.jpg')
         center no-repeat;
-    width: 100vw;
-    max-height: var(--windowInnerHeight);
     background-size: cover;
     margin-top: -72px;
 

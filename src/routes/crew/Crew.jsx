@@ -90,7 +90,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    height: max(var(--windowInnerHeight), 100vh);
+    height: var(--windowInnerHeight);
     text-align: center;
     padding-inline: 5vw;
     padding-top: 96px;
