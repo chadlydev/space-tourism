@@ -154,4 +154,38 @@ export const NavLink = styled(Link)`
             background-color: #979797;
         }
     }
+
+    // TECHNOLOGY PAGE
+    &.technology {
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        background-color: transparent;
+        border: 1px solid var(--color-light-200);
+        color: var(--color-light-100);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and ${BREAKPOINTS.tablet} {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+        }
+        @media screen and ${BREAKPOINTS.smDesktop} {
+            width: 80px;
+            height: 80px;
+            font-size: 32px;
+
+            &--inactive:hover {
+                border-color: var(--color-light-100);
+            }
+        }
+
+        &--active {
+            background-color: var(--color-light-100);
+            color: var(--color-dark);
+            border: none;
+        }
+    }
 `;

@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const UseSetDestinationData = () => {
+const useSetDestinationData = () => {
     const location = useLocation();
     const [data, setData] = useState({
         name: 'moon',
@@ -56,4 +56,4 @@ const UseSetDestinationData = () => {
     return { data };
 };
 
-export default UseSetDestinationData;
+export default useSetDestinationData;

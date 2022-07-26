@@ -6,9 +6,6 @@ import Crew from './routes/crew/Crew';
 import Technology from './routes/technology/Technology';
 import NavBar from './components/nav/NavBar';
 import useSetInnerHeight from './hooks/useSetInnerHeight';
-import LaunchVehicle from './routes/technology/LaunchVehicle';
-import Spaceport from './routes/technology/Spaceport';
-import SpaceCapsule from './routes/technology/SpaceCapsule';
 
 const App = () => {
     useSetInnerHeight();
@@ -38,9 +35,9 @@ const App = () => {
                 </Route>
                 <Route path='technology' element={<Technology />}>
                     <Route path='' element={<Navigate to='launch-vehicle' />} />
-                    <Route path='launch-vehicle' element={<LaunchVehicle />} />
-                    <Route path='spaceport' element={<Spaceport />} />
-                    <Route path='space-capsule' element={<SpaceCapsule />} />
+                    <Route path='launch-vehicle' element={null} />
+                    <Route path='spaceport' element={null} />
+                    <Route path='space-capsule' element={null} />
                 </Route>
             </Routes>
         </>
