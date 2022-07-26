@@ -4,6 +4,7 @@ import Background from '../../components/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { NavLink } from '../../components/NavLink';
 import useSetTechnologyData from './useSetTechnologyData';
+import { Wrapper as W } from '../../components/Wrapper';
 
 const Technology = () => {
     const { data } = useSetTechnologyData();
@@ -128,17 +129,9 @@ const ContentWrapper = styled.div`
     }
 `;
 
-const Wrapper = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const Wrapper = styled(W)`
     gap: 32px;
     height: var(--windowInnerHeight);
-    text-align: center;
-    padding-inline: 5vw;
-    padding-top: 96px;
-    padding-bottom: 48px;
 
     nav {
         padding-top: 238px;
@@ -169,12 +162,9 @@ const Wrapper = styled.div`
     }
 
     @media screen and ${BREAKPOINTS.smDesktop} {
-        padding-inline: 10vw;
-        padding-top: 212px;
-        padding-bottom: 112px;
-        text-align: left;
-        align-items: flex-start;
+        flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
 
         nav {
             padding: 0;
@@ -202,8 +192,6 @@ const Wrapper = styled.div`
         padding-inline: 0;
 
         h5 {
-            //position: relative;
-            //align-self: flex-start;
             top: 0;
             left: 0;
         }

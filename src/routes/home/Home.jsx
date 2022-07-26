@@ -3,6 +3,7 @@ import { BREAKPOINTS } from '../../constants/breakpoints';
 import { ExploreButton } from './ExploreButton';
 import { Link } from 'react-router-dom';
 import Background from '../../components/Background';
+import { Wrapper as W } from '../../components/Wrapper';
 
 const Home = () => {
     return (
@@ -28,27 +29,18 @@ const Home = () => {
 
 export default Home;
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+const Wrapper = styled(W)`
     justify-content: space-between;
-    align-items: center;
     height: var(--windowInnerHeight, 100vh);
-    padding-inline: 5vw;
     padding-top: 120px;
-    padding-bottom: 48px;
 
     @media screen and ${BREAKPOINTS.tablet} {
         padding-top: 184px;
     }
 
     @media screen and ${BREAKPOINTS.smDesktop} {
-        padding-inline: 10vw;
         padding-top: 136px;
         padding-bottom: 131px;
-        flex-direction: row;
-        text-align: left;
-        align-items: flex-end;
     }
     @media screen and ${BREAKPOINTS.xlDesktop} {
         align-items: center;
@@ -63,7 +55,6 @@ const Banner = styled.div`
     flex-direction: column;
     gap: 12px;
     align-items: center;
-    text-align: center;
 
     @media screen and ${BREAKPOINTS.smDesktop} {
         text-align: left;

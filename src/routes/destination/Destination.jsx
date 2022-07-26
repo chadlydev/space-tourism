@@ -5,6 +5,7 @@ import { NavLink } from '../../components/NavLink';
 import { Divider } from '../../components/Divider';
 import useSetDestinationData from './useSetDestinationData';
 import Background from '../../components/Background';
+import { Wrapper as W } from '../../components/Wrapper';
 
 const Destination = () => {
     const { data } = useSetDestinationData();
@@ -90,17 +91,9 @@ const Destination = () => {
 
 export default Destination;
 
-const Wrapper = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const Wrapper = styled(W)`
     gap: 32px;
     height: max(100%, var(--windowInnerHeight), 100vh);
-    text-align: center;
-    padding-inline: 5vw;
-    padding-top: 96px;
-    padding-bottom: 48px;
 
     img {
         width: 170px;
@@ -153,12 +146,6 @@ const Wrapper = styled.div`
     }
 
     @media screen and ${BREAKPOINTS.smDesktop} {
-        padding-inline: 10vw;
-        padding-top: 212px;
-        padding-bottom: 112px;
-        text-align: left;
-        align-items: flex-end;
-        flex-direction: row;
         justify-content: space-between;
 
         h5 {
