@@ -18,7 +18,7 @@ const Destination = () => {
                             <span>01</span>Pick your destination
                         </h5>
                         <img
-                            src={`/assets/destination/image-${data.name}.png`}
+                            src={`/assets/destination/image-${data.name}.webp`}
                             alt='moon'
                         />
                     </Left>
