@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro';
 import { Outlet } from 'react-router-dom';
-import Background from '../../components/common/Background';
+import Background from '../../components/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
-import { NavLink } from '../../components/common/NavLink';
+import { NavLink } from '../../components/NavLink';
 import useSetTechnologyData from './useSetTechnologyData';
 
 const Technology = () => {
@@ -72,6 +72,62 @@ const FlexColumn = styled.div`
     gap: 16px;
 `;
 
+const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    h5 {
+        position: absolute;
+        color: var(--color-light-100);
+        display: flex;
+        gap: 1rem;
+        span {
+            color: var(--color-light-200);
+        }
+    }
+
+    img {
+        margin-top: 51px;
+        position: absolute;
+        width: 100vw;
+    }
+
+    @media screen and ${BREAKPOINTS.tablet} {
+        h5 {
+            top: 142px;
+            left: 5vw;
+        }
+
+        img {
+            margin-top: 130px;
+        }
+    }
+
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        flex-direction: row;
+        gap: 72px;
+
+        img {
+            position: absolute;
+            margin: 0;
+            width: 515px;
+            right: 0;
+        }
+
+        & ${FlexColumn} {
+            align-self: flex-start;
+        }
+    }
+
+    @media screen and ${BREAKPOINTS.xlDesktop} {
+        position: relative;
+        & ${FlexColumn} {
+            margin-right: 256px;
+        }
+    }
+`;
+
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -83,23 +139,6 @@ const Wrapper = styled.div`
     padding-inline: 5vw;
     padding-top: 96px;
     padding-bottom: 48px;
-
-    img {
-        margin-top: 51px;
-        position: absolute;
-        width: 100vw;
-        right: 0;
-    }
-
-    h5 {
-        position: absolute;
-        color: var(--color-light-100);
-        display: flex;
-        gap: 1rem;
-        span {
-            color: var(--color-light-200);
-        }
-    }
 
     nav {
         padding-top: 238px;
@@ -120,13 +159,7 @@ const Wrapper = styled.div`
         p {
             width: 51ch;
         }
-        h5 {
-            top: 142px;
-            left: 5vw;
-        }
-        img {
-            margin-top: 130px;
-        }
+
         h6 {
             font-size: 16px;
         }
@@ -160,13 +193,6 @@ const Wrapper = styled.div`
         p {
             width: 43ch;
         }
-
-        img {
-            position: absolute;
-            margin: 0;
-            width: 515px;
-            right: 0;
-        }
     }
 
     @media screen and ${BREAKPOINTS.xlDesktop} {
@@ -187,24 +213,6 @@ const Wrapper = styled.div`
             margin: 0;
             width: 515px;
             right: 0;
-        }
-    }
-`;
-
-const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    position: relative;
-    @media screen and ${BREAKPOINTS.smDesktop} {
-        flex-direction: row;
-        gap: 72px;
-    }
-
-    @media screen and ${BREAKPOINTS.xlDesktop} {
-        & ${FlexColumn} {
-            margin-right: 256px;
         }
     }
 `;

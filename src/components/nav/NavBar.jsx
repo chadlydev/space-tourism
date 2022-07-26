@@ -1,9 +1,9 @@
-import { NavLink } from '../common/NavLink';
+import { NavLink } from '../NavLink';
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import HamburgerMenu from './HamburgerMenu';
 import useHandleResize from './useHandleResize';
-import { Divider } from '../common/Divider';
+import { Divider } from '../Divider';
 
 const NavBar = () => {
     const { openMenu, mobile, toggleOpenMenu } = useHandleResize();

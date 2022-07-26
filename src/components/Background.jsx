@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { BREAKPOINTS } from '../../constants/breakpoints';
+import { BREAKPOINTS } from '../constants/breakpoints';
 
 const Background = ({ children, page }) => {
     return <Bg page={page}>{children}</Bg>;

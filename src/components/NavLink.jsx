@@ -5,9 +5,9 @@ import {
     Link as L,
 } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import { ROUTES } from '../../constants/routes';
-import { BREAKPOINTS } from '../../constants/breakpoints';
-import { Circle } from '../../routes/crew/Crew';
+import { ROUTES } from '../constants/routes';
+import { BREAKPOINTS } from '../constants/breakpoints';
+import { Circle } from '../routes/crew/Crew';
 
 const Link = ({
     to,

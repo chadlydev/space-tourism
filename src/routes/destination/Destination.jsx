@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { Outlet } from 'react-router-dom';
-import { NavLink } from '../../components/common/NavLink';
-import { Divider } from '../../components/common/Divider';
+import { NavLink } from '../../components/NavLink';
+import { Divider } from '../../components/Divider';
 import useSetDestinationData from './useSetDestinationData';
-import Background from '../../components/common/Background';
+import Background from '../../components/Background';
 
 const Destination = () => {
     const { data } = useSetDestinationData();

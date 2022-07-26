@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { ExploreButton } from './ExploreButton';
 import { Link } from 'react-router-dom';
-import Background from '../../components/common/Background';
+import Background from '../../components/Background';
 
 const Home = () => {
     return (

@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
 import { Outlet } from 'react-router-dom';
-import Background from '../../components/common/Background';
+import Background from '../../components/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
-import { NavLink } from '../../components/common/NavLink';
+import { NavLink } from '../../components/NavLink';
 import useSetCrewData from './useSetCrewData';
-import { Divider } from '../../components/common/Divider';
+import { Divider } from '../../components/Divider';
 
 const Crew = () => {
     const { data } = useSetCrewData();
