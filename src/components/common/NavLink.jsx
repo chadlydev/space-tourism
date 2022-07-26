@@ -7,6 +7,7 @@ import {
 import styled from 'styled-components/macro';
 import { ROUTES } from '../../constants/routes';
 import { BREAKPOINTS } from '../../constants/breakpoints';
+import { Circle } from '../../routes/crew/Crew';
 
 const Link = ({
     to,
@@ -129,8 +130,28 @@ export const NavLink = styled(Link)`
                 background-color: var(--color-light-100);
             }
         }
+    }
 
-        &--inactive {
+    // CREW PAGE
+    &.crew {
+        & ${Circle} {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: var(--color-light-200);
+
+            @media screen and ${BREAKPOINTS.smDesktop} {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &--active ${Circle} {
+            background-color: var(--color-light-100);
+        }
+
+        &--inactive:hover ${Circle} {
+            background-color: #979797;
         }
     }
 `;

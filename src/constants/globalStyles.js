@@ -139,15 +139,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
-    //height: 100%;
+    height: 100%;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     font-family: 'Barlow', sans-serif;
     color: var(--color-light-100);
-    background-color: var(--color-light-100);
-    //height: var(--windowInnerHeight, 100vh);
+    background-color: var(--color-dark);
   }
 
   img, picture, video, canvas, svg {

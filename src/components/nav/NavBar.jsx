@@ -1,6 +1,5 @@
 import { NavLink } from '../common/NavLink';
 import styled from 'styled-components/macro';
-import { Link } from 'react-router-dom';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import HamburgerMenu from './HamburgerMenu';
 import useHandleResize from './useHandleResize';

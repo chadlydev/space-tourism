@@ -99,7 +99,7 @@ const Wrapper = styled.div`
     height: max(var(--windowInnerHeight), 100%, 100vh);
     text-align: center;
     padding-inline: 5vw;
-    padding-top: 120px;
+    padding-top: 96px;
     padding-bottom: 48px;
 
     img {

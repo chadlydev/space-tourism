@@ -6,10 +6,6 @@ import Crew from './routes/crew/Crew';
 import Technology from './routes/technology/Technology';
 import NavBar from './components/nav/NavBar';
 import useSetInnerHeight from './hooks/useSetInnerHeight';
-import Commander from './routes/crew/Commander';
-import MissionSpecialist from './routes/crew/MissionSpecialist';
-import Pilot from './routes/crew/Pilot';
-import FlightEngineer from './routes/crew/FlightEngineer';
 import LaunchVehicle from './routes/technology/LaunchVehicle';
 import Spaceport from './routes/technology/Spaceport';
 import SpaceCapsule from './routes/technology/SpaceCapsule';
@@ -35,16 +31,10 @@ const App = () => {
                 </Route>
                 <Route path='crew' element={<Crew />}>
                     <Route path='' element={<Navigate to='commander' />} />
-                    <Route path='commander' element={<Commander />} />
-                    <Route
-                        path='mission-specialist'
-                        element={<MissionSpecialist />}
-                    />
-                    <Route path='pilot' element={<Pilot />} />
-                    <Route
-                        path='flight-engineer'
-                        element={<FlightEngineer />}
-                    />
+                    <Route path='commander' element={null} />
+                    <Route path='mission-specialist' element={null} />
+                    <Route path='pilot' element={null} />
+                    <Route path='flight-engineer' element={null} />
                 </Route>
                 <Route path='technology' element={<Technology />}>
                     <Route path='' element={<Navigate to='launch-vehicle' />} />
