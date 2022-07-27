@@ -79,9 +79,11 @@ export const NavLink = styled(Link)`
         gap: var(--padding-xs);
         padding-block: 6px;
         border-right: 4px solid transparent;
+        margin-right: 4px;
 
         @media screen and ${BREAKPOINTS.tablet} {
             padding-block: 38.5px;
+            margin-right: 0;
         }
 
         @media screen and ${BREAKPOINTS.smDesktop} {

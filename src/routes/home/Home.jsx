@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { ExploreButton } from './ExploreButton';
-import { Link } from 'react-router-dom';
 import Background from '../../components/Background';
 import { Wrapper as W } from '../../components/Wrapper';
 
@@ -19,9 +18,7 @@ const Home = () => {
                         we’ll give you a truly out of this world experience!
                     </p>
                 </Banner>
-                <ExploreButton as={Link} to='/destination' type='button'>
-                    Explore
-                </ExploreButton>
+                <ExploreButton>Explore</ExploreButton>
             </Wrapper>
         </Background>
     );

@@ -71,7 +71,6 @@ const Crew = () => {
                     </ContentWrapper>
                 </Wrapper>
             </Background>
-
             <Outlet />
         </>
     );

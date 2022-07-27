@@ -1,7 +1,44 @@
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
-export const ExploreButton = styled.button`
+const variants = {
+    initial: {
+        opacity: 0,
+        scale: 0.5,
+    },
+    animate: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            ease: [0, 0.71, 0.2, 1.15],
+            duration: 0.8,
+            delay: 0.5,
+        },
+    },
+};
+
+export const ExploreButton = ({ children }) => {
+    const navigate = useNavigate();
+
+    return (
+        <StyledExploreButton
+            onClick={() => navigate('/destination')}
+            type='button'
+            as={motion.div}
+            variants={variants}
+            initial='initial'
+            animate='animate'
+        >
+            {children}
+        </StyledExploreButton>
+    );
+};
+
+export default ExploreButton;
+
+const StyledExploreButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
