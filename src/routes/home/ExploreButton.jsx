@@ -27,9 +27,6 @@ export const ExploreButton = ({ children }) => {
             onClick={() => navigate('/destination')}
             type='button'
             as={motion.div}
-            variants={variants}
-            initial='initial'
-            animate='animate'
         >
             {children}
         </StyledExploreButton>

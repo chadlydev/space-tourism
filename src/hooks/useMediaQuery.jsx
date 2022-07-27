@@ -1,33 +1,18 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+const useMediaQuery = query => {
+    const [matches, setMatches] = useState(false);
 
-export function useMediaQuery() {
-    const [data, setData] = useState({
-        isMobile: false,
-        isTablet: true,
-        isDesktop: false,
-    });
-
-    useLayoutEffect(() => {
-        if (window.innerWidth >= 320 && window.innerWidth < 540) {
-            setData({
-                isMobile: true,
-                isTablet: false,
-                isDesktop: false,
-            });
-        } else if (window.innerWidth >= 540 && window.innerWidth < 1024) {
-            setData({
-                isMobile: false,
-                isTablet: true,
-                isDesktop: false,
-            });
-        } else if (window.innerWidth >= 1024) {
-            setData({
-                isMobile: false,
-                isTablet: false,
-                isDesktop: true,
-            });
+    useEffect(() => {
+        const media = window.matchMedia(query);
+        if (media.matches !== matches) {
+            setMatches(media.matches);
         }
-    }, []);
+        const listener = () => setMatches(media.matches);
+        window.addEventListener('resize', listener);
+        return () => window.removeEventListener('resize', listener);
+    }, [matches, query]);
 
-    return { data };
-}
+    return matches;
+};
+
+export default useMediaQuery;

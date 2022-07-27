@@ -1,81 +1,31 @@
 import { NavLink } from '../NavLink';
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import { motion } from 'framer-motion';
+import { variants } from './variants';
 
 const NavMenu = () => {
-    const { data } = useMediaQuery();
-    const { isTablet } = data;
+    const isTablet = useMediaQuery(
+        '(min-width: 540px)' && '(max-width: 1023px)'
+    );
 
-    const variants = isTablet
-        ? {
-              nav: {
-                  initial: { width: 0 },
-                  animate: {
-                      width: 'fit-content',
-                      transition: {
-                          type: 'tween',
-                          duration: 1,
-                      },
-                  },
-              },
-              ul: {
-                  initial: { opacity: 0 },
-                  animate: {
-                      opacity: 1,
-                      transition: {
-                          delayChildren: 1,
-                          staggerChildren: 0.3,
-                      },
-                  },
-              },
-              li: {
-                  initial: { opacity: 0, y: -20 },
-                  animate: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { type: 'spring', stiffness: 200 },
-                  },
-              },
-          }
-        : {
-              nav: {
-                  initial: { width: '0%' },
-                  animate: {
-                      width: '100%',
-                      transition: {
-                          duration: 0.8,
-                      },
-                  },
-              },
-              ul: {
-                  initial: { opacity: 0 },
-                  animate: {
-                      opacity: 1,
-                      transition: {
-                          delayChildren: 1,
-                          staggerChildren: 0.2,
-                      },
-                  },
-              },
-              li: {
-                  initial: { opacity: 0, y: -20 },
-                  animate: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { type: 'spring', stiffness: 60 },
-                  },
-              },
-          };
     return (
-        <Nav variants={variants.nav} initial='initial' animate='animate'>
+        <Nav
+            variants={isTablet ? variants.tablet.nav : variants.desktop.nav}
+            initial='initial'
+            animate='animate'
+        >
             <motion.ul
-                variants={variants.ul}
+                variants={isTablet ? variants.tablet.ul : variants.desktop.ul}
                 initial='initial'
                 animate='animate'
             >
-                <motion.li variants={variants.li}>
+                <motion.li
+                    variants={
+                        isTablet ? variants.tablet.li : variants.desktop.li
+                    }
+                >
                     <NavLink
                         to='home'
                         className='navbar'
@@ -85,7 +35,11 @@ const NavMenu = () => {
                         <span>00</span>Home
                     </NavLink>
                 </motion.li>
-                <motion.li variants={variants.li}>
+                <motion.li
+                    variants={
+                        isTablet ? variants.tablet.li : variants.desktop.li
+                    }
+                >
                     <NavLink
                         to='destination'
                         className='navbar'
@@ -95,7 +49,11 @@ const NavMenu = () => {
                         <span>01</span>Destination
                     </NavLink>
                 </motion.li>
-                <motion.li variants={variants.li}>
+                <motion.li
+                    variants={
+                        isTablet ? variants.tablet.li : variants.desktop.li
+                    }
+                >
                     <NavLink
                         to='crew'
                         className='navbar'
@@ -105,7 +63,11 @@ const NavMenu = () => {
                         <span>02</span>Crew
                     </NavLink>
                 </motion.li>
-                <motion.li variants={variants.li}>
+                <motion.li
+                    variants={
+                        isTablet ? variants.tablet.li : variants.desktop.li
+                    }
+                >
                     <NavLink
                         to='technology'
                         className='navbar'
@@ -128,7 +90,7 @@ const Nav = styled(motion.nav)`
     @media screen and ${BREAKPOINTS.tablet} {
         display: flex;
         height: auto;
-        width: fit-content;
+        width: auto;
         background-color: var(--color-transparent);
         backdrop-filter: blur(20px);
         margin-right: -5vw;
@@ -149,18 +111,17 @@ const Nav = styled(motion.nav)`
     }
 
     @media screen and ${BREAKPOINTS.smDesktop} {
-        padding-inline: 10vw;
         margin-right: -10vw;
 
         ul {
             gap: 48px;
 
             &:first-child {
-                margin-left: 0;
+                margin-left: 10vw;
             }
 
             &:last-child {
-                margin-right: 0;
+                margin-right: 10vw;
             }
         }
     }

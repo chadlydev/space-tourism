@@ -1,13 +1,30 @@
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../constants/breakpoints';
+import { motion } from 'framer-motion';
+
+const variants = {
+    initial: {
+        opacity: 0,
+    },
+    animate: {
+        opacity: 1,
+        transition: {
+            duration: 1,
+        },
+    },
+};
 
 const Background = ({ children, page }) => {
-    return <Bg page={page}>{children}</Bg>;
+    return (
+        <Bg variants={variants} initial='initial' animate='animate' page={page}>
+            {children}
+        </Bg>
+    );
 };
 
 export default Background;
 
-const Bg = styled.div`
+const Bg = styled(motion.div)`
     background: url('/assets/${p => p.page}/background-${p =>
             p.page}-mobile.jpg')
         center no-repeat;

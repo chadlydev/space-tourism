@@ -2,75 +2,39 @@ import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { useNavigate } from 'react-router-dom';
 import NavMenu from './NavMenu';
-import { motion } from 'framer-motion';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { AnimatePresence, motion } from 'framer-motion';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import { variants } from './variants';
 
 const DesktopNav = () => {
     const navigate = useNavigate();
-    const {
-        data: { isTablet },
-    } = useMediaQuery();
-
-    const tablet = {
-        logo: {
-            initial: { opacity: 0, y: -40 },
-            animate: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                    type: 'spring',
-                    stiffness: 60,
-                    duration: 2,
-                    delay: 2.2,
-                },
-            },
-        },
-    };
-
-    const desktop = {
-        logo: {
-            initial: { opacity: 0, x: -20 },
-            animate: {
-                opacity: 1,
-                x: 0,
-                transition: {
-                    type: 'spring',
-                    stiffness: 200,
-                    delay: 3,
-                },
-            },
-        },
-        line: {
-            initial: { width: '0%' },
-            animate: {
-                width: '100%',
-                transition: {
-                    type: 'tween',
-                    duration: 1,
-                    delay: 2,
-                },
-            },
-        },
-    };
+    const isTablet = useMediaQuery(
+        '(min-width: 540px)' && '(max-width: 1023px)'
+    );
 
     return (
-        <NavContainer>
-            <motion.img
-                style={{ cursor: 'pointer' }}
-                onClick={() => navigate('/home')}
-                src='/assets/shared/logo.svg'
-                alt='logo'
-                variants={isTablet ? tablet.logo : desktop.logo}
-                initial='initial'
-                animate='animate'
-            />
-            <Line
-                variants={isTablet ? tablet.line : desktop.line}
-                initial='initial'
-                animate='animate'
-            />
-            <NavMenu />
-        </NavContainer>
+        <AnimatePresence>
+            <NavContainer>
+                <motion.img
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => navigate('/home')}
+                    src='/assets/shared/logo.svg'
+                    alt='logo'
+                    variants={variants.tablet.logo}
+                    initial='initial'
+                    animate='animate'
+                />
+                <Line
+                    as={motion.div}
+                    variants={
+                        isTablet ? variants.tablet.line : variants.desktop.line
+                    }
+                    initial='initial'
+                    animate='animate'
+                />
+                <NavMenu />
+            </NavContainer>
+        </AnimatePresence>
     );
 };
 
