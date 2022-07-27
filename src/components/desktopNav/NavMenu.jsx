@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { motion } from 'framer-motion';
-import { variants } from './variants';
+import * as variants from './variants';
 
 const NavMenu = () => {
     const isTablet = useMediaQuery(
@@ -12,20 +12,18 @@ const NavMenu = () => {
 
     return (
         <Nav
-            variants={isTablet ? variants.tablet.nav : variants.desktop.nav}
+            variants={variants.nav}
             initial='initial'
-            animate='animate'
+            animate={isTablet ? 'tablet' : 'desktop'}
         >
             <motion.ul
-                variants={isTablet ? variants.tablet.ul : variants.desktop.ul}
+                variants={
+                    isTablet ? variants.navListTablet : variants.navListDesktop
+                }
                 initial='initial'
                 animate='animate'
             >
-                <motion.li
-                    variants={
-                        isTablet ? variants.tablet.li : variants.desktop.li
-                    }
-                >
+                <motion.li variants={variants.listItem}>
                     <NavLink
                         to='home'
                         activeClassName='active'
@@ -34,11 +32,7 @@ const NavMenu = () => {
                         <span>00</span>Home
                     </NavLink>
                 </motion.li>
-                <motion.li
-                    variants={
-                        isTablet ? variants.tablet.li : variants.desktop.li
-                    }
-                >
+                <motion.li variants={variants.listItem}>
                     <NavLink
                         to='destination'
                         activeClassName='active'
@@ -47,11 +41,7 @@ const NavMenu = () => {
                         <span>01</span>Destination
                     </NavLink>
                 </motion.li>
-                <motion.li
-                    variants={
-                        isTablet ? variants.tablet.li : variants.desktop.li
-                    }
-                >
+                <motion.li variants={variants.listItem}>
                     <NavLink
                         to='crew'
                         activeClassName='active'
@@ -60,11 +50,7 @@ const NavMenu = () => {
                         <span>02</span>Crew
                     </NavLink>
                 </motion.li>
-                <motion.li
-                    variants={
-                        isTablet ? variants.tablet.li : variants.desktop.li
-                    }
-                >
+                <motion.li variants={variants.listItem}>
                     <NavLink
                         to='technology'
                         activeClassName='active'

@@ -5,8 +5,16 @@ import {
     Link as L,
 } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import { ROUTES } from '../constants/routes';
 import { BREAKPOINTS } from '../constants/breakpoints';
+
+const ROUTES = [
+    { path: '' },
+    { path: '*' },
+    { path: 'home' },
+    { path: 'destination' },
+    { path: 'crew' },
+    { path: 'technology' },
+];
 
 const Link = ({
     to,

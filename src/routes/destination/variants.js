@@ -1,10 +1,4 @@
-const hide = {
-    opacity: 0,
-};
-
-const show = {
-    opacity: 1,
-};
+import { hide, show } from '../../constants/variants';
 
 export const sentence = {
     initial: { ...hide },

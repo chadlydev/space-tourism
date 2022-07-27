@@ -3,14 +3,10 @@ import { BREAKPOINTS } from '../../constants/breakpoints';
 import { useNavigate } from 'react-router-dom';
 import NavMenu from './NavMenu';
 import { motion } from 'framer-motion';
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { variants } from './variants';
+import * as variants from './variants';
 
 const DesktopNav = () => {
     const navigate = useNavigate();
-    const isTablet = useMediaQuery(
-        '(min-width: 540px)' && '(max-width: 1023px)'
-    );
 
     return (
         <NavContainer>
@@ -19,15 +15,13 @@ const DesktopNav = () => {
                 onClick={() => navigate('/home')}
                 src='/assets/shared/logo.svg'
                 alt='logo'
-                variants={variants.tablet.logo}
+                variants={variants.logo}
                 initial='initial'
                 animate='animate'
             />
             <Line
                 as={motion.div}
-                variants={
-                    isTablet ? variants.tablet.line : variants.desktop.line
-                }
+                variants={variants.line}
                 initial='initial'
                 animate='animate'
             />

@@ -23,7 +23,7 @@ const HamburgerMenu = () => {
             <MenuToggle toggle={toggleMenu} isOpen={isOpen} />
             <MenuContainer
                 initial={false}
-                animate={isOpen ? 'open' : 'closed'}
+                animate={isOpen ? 'show' : 'hide'}
                 variants={menuVariants}
                 transition={menuTransition}
                 onScroll={toggleMenu}
@@ -47,14 +47,14 @@ const MenuContainer = styled(motion.div)`
     right: 0;
     bottom: 0;
     padding-top: 20vh;
-    padding-left: 32px;
+    padding-left: var(--padding-md);
 `;
 
 const menuVariants = {
-    open: {
+    show: {
         transform: 'translateX(3%)',
     },
-    closed: {
+    hide: {
         transform: 'translateX(103%)',
     },
 };
