@@ -12,11 +12,10 @@ const HamburgerMenu = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', toggleMenu);
-        //
-        // return () => {
-        //     window.removeEventListener('scroll', toggleMenu);
-        // };
+        window.addEventListener('scroll', () => setIsOpen(false));
+        return () => {
+            window.removeEventListener('scroll', () => setIsOpen(false));
+        };
     });
 
     return (
