@@ -2,13 +2,15 @@ import styled from 'styled-components/macro';
 import { Outlet } from 'react-router-dom';
 import Background from '../../components/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
-import { NavLink } from '../../components/NavLink';
-import useSetCrewData from './useSetCrewData';
+import useSetCrewData from './useGetData';
 import { Divider } from '../../components/Divider';
 import { Wrapper as W } from '../../components/Wrapper';
+import { useState } from 'react';
 
 const Crew = () => {
-    const { data } = useSetCrewData();
+    const [currentContent, setCurrentContent] = useState(1);
+    const { data } = useSetCrewData(currentContent);
+
     return (
         <>
             <Background page='crew'>
@@ -22,44 +24,44 @@ const Crew = () => {
                         <nav>
                             <ul>
                                 <li>
-                                    <NavLink
-                                        to='/crew/commander'
-                                        className='crew'
-                                        activeClassName='crew--active'
-                                        inactiveClassName='crew--inactive'
-                                    >
-                                        <Circle />
-                                    </NavLink>
+                                    <Circle
+                                        onClick={() => setCurrentContent(1)}
+                                        className={
+                                            currentContent === 1
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
+                                    />
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to='/crew/mission-specialist'
-                                        className='crew'
-                                        activeClassName='crew--active'
-                                        inactiveClassName='crew--inactive'
-                                    >
-                                        <Circle />
-                                    </NavLink>
+                                    <Circle
+                                        onClick={() => setCurrentContent(2)}
+                                        className={
+                                            currentContent === 2
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
+                                    />
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to='/crew/pilot'
-                                        className='crew'
-                                        activeClassName='crew--active'
-                                        inactiveClassName='crew--inactive'
-                                    >
-                                        <Circle />
-                                    </NavLink>
+                                    <Circle
+                                        onClick={() => setCurrentContent(3)}
+                                        className={
+                                            currentContent === 3
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
+                                    />
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to='/crew/flight-engineer'
-                                        className='crew'
-                                        activeClassName='crew--active'
-                                        inactiveClassName='crew--inactive'
-                                    >
-                                        <Circle />
-                                    </NavLink>
+                                    <Circle
+                                        onClick={() => setCurrentContent(4)}
+                                        className={
+                                            currentContent === 4
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
+                                    />
                                 </li>
                             </ul>
                         </nav>
@@ -77,6 +79,28 @@ const Crew = () => {
 };
 
 export default Crew;
+
+export const Circle = styled.div`
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--color-light-200);
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        width: 16px;
+        height: 16px;
+    }
+
+    &.active {
+        background-color: var(--color-light-100);
+    }
+
+    &.inactive:hover {
+        background-color: #979797;
+    }
+`;
 
 const FlexColumn = styled.div`
     display: flex;
@@ -219,11 +243,4 @@ const ContentWrapper = styled.div`
         gap: 90px;
         justify-content: center;
     }
-`;
-
-export const Circle = styled.div`
-    width: 16px;
-    height: 16px;
-    border-radius: 100%;
-    background-color: var(--color-light-200);
 `;

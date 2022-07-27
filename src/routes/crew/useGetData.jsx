@@ -1,8 +1,6 @@
-import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const UseSetCrewData = () => {
-    const location = useLocation();
+const useGetData = crewMember => {
     const [data, setData] = useState({
         title: 'Commander',
         name: 'Douglas Hurley',
@@ -12,8 +10,8 @@ const UseSetCrewData = () => {
     });
 
     useEffect(() => {
-        switch (location.pathname) {
-            case '/crew/commander':
+        switch (crewMember) {
+            case 1:
                 setData({
                     title: 'Commander',
                     name: 'Douglas Hurley',
@@ -22,7 +20,7 @@ const UseSetCrewData = () => {
                     imageURL: '/assets/crew/image-douglas-hurley.webp',
                 });
                 break;
-            case '/crew/mission-specialist':
+            case 2:
                 setData({
                     title: 'Mission Specialist',
                     name: 'Mark Shuttleworth',
@@ -31,7 +29,7 @@ const UseSetCrewData = () => {
                     imageURL: '/assets/crew/image-mark-shuttleworth.webp',
                 });
                 break;
-            case '/crew/pilot':
+            case 3:
                 setData({
                     title: 'Pilot',
                     name: 'Victor Glover',
@@ -40,7 +38,7 @@ const UseSetCrewData = () => {
                     imageURL: '/assets/crew/image-victor-glover.webp',
                 });
                 break;
-            case '/crew/flight-engineer':
+            case 4:
                 setData({
                     title: 'Flight Engineer',
                     name: 'Anousheh Ansari',
@@ -52,8 +50,8 @@ const UseSetCrewData = () => {
             default:
                 return;
         }
-    }, [location]);
+    }, [crewMember]);
     return { data };
 };
 
-export default UseSetCrewData;
+export default useGetData;

@@ -28,8 +28,7 @@ const NavMenu = () => {
                 >
                     <NavLink
                         to='home'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>00</span>Home
@@ -42,8 +41,7 @@ const NavMenu = () => {
                 >
                     <NavLink
                         to='destination'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>01</span>Destination
@@ -56,8 +54,7 @@ const NavMenu = () => {
                 >
                     <NavLink
                         to='crew'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>02</span>Crew
@@ -70,8 +67,7 @@ const NavMenu = () => {
                 >
                     <NavLink
                         to='technology'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>03</span>Technology

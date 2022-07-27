@@ -37,10 +37,10 @@ export const variants = {
             },
         },
         li: {
-            initial: { opacity: 0, y: -20 },
+            initial: { opacity: 0, translateY: -20 },
             animate: {
                 opacity: 1,
-                y: 0,
+                translateY: 0,
                 transition: { type: 'spring', stiffness: 200 },
             },
         },
@@ -81,10 +81,10 @@ export const variants = {
             },
         },
         li: {
-            initial: { opacity: 0, y: -20 },
+            initial: { opacity: 0, translateY: -20 },
             animate: {
                 opacity: 1,
-                y: 0,
+                translateY: 0,
                 transition: { type: 'spring', stiffness: 60 },
             },
         },

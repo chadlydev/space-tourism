@@ -1,8 +1,6 @@
-import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const useSetDestinationData = () => {
-    const location = useLocation();
+const useGetData = planet => {
     const [data, setData] = useState({
         name: 'moon',
         content:
@@ -12,8 +10,8 @@ const useSetDestinationData = () => {
     });
 
     useEffect(() => {
-        switch (location.pathname) {
-            case '/destination/moon':
+        switch (planet) {
+            case 'moon':
                 setData({
                     name: 'moon',
                     content:
@@ -22,16 +20,16 @@ const useSetDestinationData = () => {
                     travelTime: '3 Days',
                 });
                 break;
-            case '/destination/mars':
+            case 'mars':
                 setData({
                     name: 'mars',
                     content:
-                        'Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!',
+                        'Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest, so be prepared!',
                     distance: '225 MIL. KM',
                     travelTime: '9 Months',
                 });
                 break;
-            case '/destination/europa':
+            case 'europa':
                 setData({
                     name: 'europa',
                     content:
@@ -40,7 +38,7 @@ const useSetDestinationData = () => {
                     travelTime: '3 Years',
                 });
                 break;
-            case '/destination/titan':
+            case 'titan':
                 setData({
                     name: 'titan',
                     content:
@@ -52,8 +50,8 @@ const useSetDestinationData = () => {
             default:
                 return;
         }
-    }, [location]);
+    }, [planet]);
     return { data };
 };
 
-export default useSetDestinationData;
+export default useGetData;

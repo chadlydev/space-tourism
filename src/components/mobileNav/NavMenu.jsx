@@ -33,8 +33,7 @@ const NavMenu = ({ isOpen, toggle }) => {
                     <NavLink
                         onClick={toggle}
                         to='home'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>00</span>Home
@@ -44,8 +43,7 @@ const NavMenu = ({ isOpen, toggle }) => {
                     <NavLink
                         onClick={toggle}
                         to='destination'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>01</span>Destination
@@ -55,8 +53,7 @@ const NavMenu = ({ isOpen, toggle }) => {
                     <NavLink
                         onClick={toggle}
                         to='crew'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>02</span>Crew
@@ -66,8 +63,7 @@ const NavMenu = ({ isOpen, toggle }) => {
                     <NavLink
                         onClick={toggle}
                         to='technology'
-                        className='navbar'
-                        activeClassName='navbar--active'
+                        activeClassName='active'
                         inactiveClassName='inactive'
                     >
                         <span>03</span>Technology

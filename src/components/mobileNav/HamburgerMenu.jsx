@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import MenuToggle from './MenuToggle';
 import NavMenu from './NavMenu';
@@ -11,6 +11,14 @@ const HamburgerMenu = () => {
         setIsOpen(!isOpen);
     }
 
+    useEffect(() => {
+        window.addEventListener('scroll', toggleMenu);
+        //
+        // return () => {
+        //     window.removeEventListener('scroll', toggleMenu);
+        // };
+    });
+
     return (
         <>
             <MenuToggle toggle={toggleMenu} isOpen={isOpen} />
@@ -19,10 +27,9 @@ const HamburgerMenu = () => {
                 animate={isOpen ? 'open' : 'closed'}
                 variants={menuVariants}
                 transition={menuTransition}
+                onScroll={toggleMenu}
             >
-                <ContentContainer>
-                    <NavMenu isOpen={isOpen} toggle={toggleMenu} />
-                </ContentContainer>
+                <NavMenu isOpen={isOpen} toggle={toggleMenu} />
             </MenuContainer>
         </>
     );
@@ -32,21 +39,16 @@ export default HamburgerMenu;
 
 const MenuContainer = styled(motion.div)`
     width: 65vw;
-    height: var(--windowInnerHeight, 100vh);
+    height: max(var(--windowInnerHeight), 100%, 100vh);
     background-color: var(--color-transparent);
     backdrop-filter: blur(20px);
     z-index: 90;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    bottom: 0;
     padding-top: 20vh;
     padding-left: 32px;
-`;
-
-const ContentContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
 `;
 
 const menuVariants = {

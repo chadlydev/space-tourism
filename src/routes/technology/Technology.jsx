@@ -2,12 +2,13 @@ import styled from 'styled-components/macro';
 import { Outlet } from 'react-router-dom';
 import Background from '../../components/Background';
 import { BREAKPOINTS } from '../../constants/breakpoints';
-import { NavLink } from '../../components/NavLink';
-import useSetTechnologyData from './useSetTechnologyData';
+import useGetData from './useGetData';
 import { Wrapper as W } from '../../components/Wrapper';
+import { useState } from 'react';
 
 const Technology = () => {
-    const { data } = useSetTechnologyData();
+    const [currentContent, setCurrentContent] = useState(1);
+    const { data } = useGetData(currentContent);
 
     return (
         <>
@@ -20,34 +21,40 @@ const Technology = () => {
                         <nav>
                             <ul>
                                 <li>
-                                    <NavLink
-                                        to='/technology/launch-vehicle'
-                                        className='technology'
-                                        activeClassName='technology--active'
-                                        inactiveClassName='technology--inactive'
+                                    <Circle
+                                        onClick={() => setCurrentContent(1)}
+                                        className={
+                                            currentContent === 1
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
                                     >
                                         1
-                                    </NavLink>
+                                    </Circle>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to='/technology/spaceport'
-                                        className='technology'
-                                        activeClassName='technology--active'
-                                        inactiveClassName='technology--inactive'
+                                    <Circle
+                                        onClick={() => setCurrentContent(2)}
+                                        className={
+                                            currentContent === 2
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
                                     >
                                         2
-                                    </NavLink>
+                                    </Circle>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to='/technology/space-capsule'
-                                        className='technology'
-                                        activeClassName='technology--active'
-                                        inactiveClassName='technology--inactive'
+                                    <Circle
+                                        onClick={() => setCurrentContent(3)}
+                                        className={
+                                            currentContent === 3
+                                                ? 'active'
+                                                : 'inactive'
+                                        }
                                     >
                                         3
-                                    </NavLink>
+                                    </Circle>
                                 </li>
                             </ul>
                         </nav>
@@ -66,6 +73,42 @@ const Technology = () => {
 };
 
 export default Technology;
+
+const Circle = styled.button`
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
+    background-color: transparent;
+    border: 1px solid var(--color-light-200);
+    color: var(--color-light-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+
+    @media screen and ${BREAKPOINTS.tablet} {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+
+        &.inactive:hover {
+            border-color: var(--color-light-100);
+        }
+    }
+
+    &.active {
+        background-color: var(--color-light-100);
+        color: var(--color-dark);
+        border: none;
+    }
+`;
 
 const FlexColumn = styled.div`
     display: flex;

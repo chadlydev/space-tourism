@@ -1,8 +1,6 @@
-import { useLocation } from 'react-router-dom';
 import { useLayoutEffect, useState } from 'react';
 
-const useSetTechnologyData = () => {
-    const location = useLocation();
+const useGetData = step => {
     const [isDesktop, setIsDesktop] = useState(false);
     const [data, setData] = useState({
         title: 'Launch Vehicle',
@@ -18,8 +16,8 @@ const useSetTechnologyData = () => {
             setIsDesktop(false);
         }
 
-        switch (location.pathname) {
-            case '/technology/launch-vehicle':
+        switch (step) {
+            case 1:
                 setData({
                     title: 'Launch Vehicle',
                     content:
@@ -29,7 +27,7 @@ const useSetTechnologyData = () => {
                     }.jpg`,
                 });
                 break;
-            case '/technology/spaceport':
+            case 2:
                 setData({
                     title: 'Spaceport',
                     content:
@@ -39,7 +37,7 @@ const useSetTechnologyData = () => {
                     }.jpg`,
                 });
                 break;
-            case '/technology/space-capsule':
+            case 3:
                 setData({
                     title: 'Space Capsule',
                     content:
@@ -52,8 +50,8 @@ const useSetTechnologyData = () => {
             default:
                 return;
         }
-    }, [location, isDesktop]);
+    }, [step, isDesktop]);
     return { data };
 };
 
-export default useSetTechnologyData;
+export default useGetData;

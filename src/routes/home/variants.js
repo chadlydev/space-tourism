@@ -2,11 +2,11 @@ export const variants = {
     title: {
         initial: {
             opacity: 0,
-            y: 80,
+            translateY: 80,
         },
         animate: {
             opacity: 1,
-            y: 0,
+            translateY: 0,
             transition: {
                 duration: 1,
                 ease: 'easeInOut',
@@ -17,11 +17,11 @@ export const variants = {
     text: {
         initial: {
             opacity: 0,
-            x: -40,
+            translateX: -40,
         },
         animate: {
             opacity: 1,
-            x: 0,
+            translateX: 0,
             transition: {
                 duration: 1,
                 ease: 'easeInOut',

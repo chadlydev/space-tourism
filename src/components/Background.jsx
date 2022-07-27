@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const variants = {
     initial: {
-        opacity: 0.1,
+        opacity: 0,
     },
     animate: {
         opacity: 1,
@@ -12,20 +12,11 @@ const variants = {
             duration: 1.2,
         },
     },
-    exit: {
-        opacity: 0.5,
-    },
 };
 
 const Background = ({ children, page }) => {
     return (
-        <Bg
-            variants={variants}
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            page={page}
-        >
+        <Bg variants={variants} initial='initial' animate='animate' page={page}>
             {children}
         </Bg>
     );
