@@ -150,7 +150,7 @@ const Wrapper = styled(W)`
         justify-content: space-between;
 
         h5 {
-            top: 212px;
+            top: 206px;
             left: 10vw;
         }
 
@@ -164,13 +164,6 @@ const Wrapper = styled(W)`
             margin-left: 4rem;
             width: 445px;
             height: 445px;
-        }
-
-        h5 {
-            position: relative;
-            align-self: flex-start;
-            top: 0;
-            left: 0;
         }
     }
     @media screen and ${BREAKPOINTS.lgDesktop} {
@@ -215,7 +208,7 @@ const Left = styled.div`
         justify-content: flex-end;
     }
     @media screen and ${BREAKPOINTS.mdDesktop} {
-        justify-content: space-between;
+        //justify-content: space-between;
     }
     @media screen and ${BREAKPOINTS.xlDesktop} {
         gap: 90px;

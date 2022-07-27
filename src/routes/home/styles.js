@@ -1,41 +1,51 @@
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
+import { Wrapper as W } from '../../components/Wrapper';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
-const variants = {
-    initial: {
-        opacity: 0,
-        scale: 0.5,
-    },
-    animate: {
-        opacity: 1,
-        scale: 1,
-        transition: {
-            ease: [0, 0.71, 0.2, 1.15],
-            duration: 0.8,
-            delay: 0.5,
-        },
-    },
-};
+export const Wrapper = styled(W)`
+    justify-content: space-between;
+    height: var(--windowInnerHeight, 100vh);
+    padding-top: 120px;
 
-export const ExploreButton = ({ children }) => {
-    const navigate = useNavigate();
+    @media screen and ${BREAKPOINTS.tablet} {
+        padding-top: 184px;
+    }
 
-    return (
-        <StyledExploreButton
-            onClick={() => navigate('/destination')}
-            type='button'
-            as={motion.div}
-        >
-            {children}
-        </StyledExploreButton>
-    );
-};
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        padding-top: 136px;
+        padding-bottom: 131px;
+    }
+    @media screen and ${BREAKPOINTS.xlDesktop} {
+        align-items: center;
+        width: clamp(1200px, 80vw, 1800px);
+        margin-inline: auto;
+        padding-inline: 0;
+    }
+`;
+export const Banner = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
 
-export default ExploreButton;
+    @media screen and ${BREAKPOINTS.smDesktop} {
+        text-align: left;
+        align-items: flex-start;
+        gap: 24px;
+    }
 
-const StyledExploreButton = styled.button`
+    p {
+        width: 38ch;
+        @media screen and ${BREAKPOINTS.tablet} {
+            width: 49ch;
+        }
+        @media screen and ${BREAKPOINTS.smDesktop} {
+            width: 45ch;
+        }
+    }
+`;
+export const ExploreButton = styled(motion.button)`
     display: flex;
     justify-content: center;
     align-items: center;

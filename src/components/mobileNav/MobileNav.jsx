@@ -14,9 +14,8 @@ const variants = {
         transform: 'translateY(0em)',
         opacity: 1,
         transition: {
-            duration: 1,
+            duration: 3,
             type: 'spring',
-            stiffness: 60,
         },
     },
 };

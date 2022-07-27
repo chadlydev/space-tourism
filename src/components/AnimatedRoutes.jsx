@@ -5,15 +5,15 @@ import Crew from '../routes/crew/Crew';
 import Technology from '../routes/technology/Technology';
 import { AnimatePresence } from 'framer-motion';
 
-const AnimatedRoutes = () => {
+const AnimatedRoutes = ({ hasVisited }) => {
     const location = useLocation();
     return (
         <AnimatePresence exitBeforeEnter='true'>
-            <Routes location={location} key={location}>
+            <Routes location={location} key={location.pathname.split('/')[1]}>
                 {/* Redirecting default Route */}
                 <Route index element={<Navigate to='home' />} />
                 <Route path='*' element={<Navigate to='/home' />} />
-                <Route path='home' element={<Home />} />
+                <Route path='home' element={<Home hasVisited={hasVisited} />} />
                 <Route path='destination' element={<Destination />}>
                     <Route path='' element={<Navigate to='moon' />} />
                     <Route path='moon' element={null} />

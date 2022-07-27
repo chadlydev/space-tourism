@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../../constants/breakpoints';
 import { useNavigate } from 'react-router-dom';
 import NavMenu from './NavMenu';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { variants } from './variants';
 
@@ -13,28 +13,26 @@ const DesktopNav = () => {
     );
 
     return (
-        <AnimatePresence>
-            <NavContainer>
-                <motion.img
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => navigate('/home')}
-                    src='/assets/shared/logo.svg'
-                    alt='logo'
-                    variants={variants.tablet.logo}
-                    initial='initial'
-                    animate='animate'
-                />
-                <Line
-                    as={motion.div}
-                    variants={
-                        isTablet ? variants.tablet.line : variants.desktop.line
-                    }
-                    initial='initial'
-                    animate='animate'
-                />
-                <NavMenu />
-            </NavContainer>
-        </AnimatePresence>
+        <NavContainer>
+            <motion.img
+                style={{ cursor: 'pointer' }}
+                onClick={() => navigate('/home')}
+                src='/assets/shared/logo.svg'
+                alt='logo'
+                variants={variants.tablet.logo}
+                initial='initial'
+                animate='animate'
+            />
+            <Line
+                as={motion.div}
+                variants={
+                    isTablet ? variants.tablet.line : variants.desktop.line
+                }
+                initial='initial'
+                animate='animate'
+            />
+            <NavMenu />
+        </NavContainer>
     );
 };
 

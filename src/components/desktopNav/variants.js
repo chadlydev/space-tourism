@@ -3,7 +3,7 @@ export const variants = {
         logo: {
             initial: {
                 opacity: 0,
-                translateX: -20,
+                translateX: -80,
             },
             animate: {
                 opacity: 1,
@@ -20,6 +20,7 @@ export const variants = {
             animate: {
                 width: 'auto',
                 transition: {
+                    type: 'tween',
                     duration: 1,
                     delay: 0.8,
                 },
@@ -54,7 +55,7 @@ export const variants = {
                 transition: {
                     type: 'tween',
                     duration: 1,
-                    delay: 1.8,
+                    delay: 2.8,
                 },
             },
         },
@@ -65,7 +66,7 @@ export const variants = {
                 transition: {
                     type: 'tween',
                     duration: 1,
-                    delay: 1,
+                    delay: 0.8,
                 },
             },
         },
