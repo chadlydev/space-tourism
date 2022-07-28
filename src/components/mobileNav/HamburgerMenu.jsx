@@ -37,7 +37,7 @@ const HamburgerMenu = () => {
 export default HamburgerMenu;
 
 const MenuContainer = styled(motion.div)`
-    width: 65vw;
+    width: 70vw;
     height: max(var(--windowInnerHeight), 100%, 100vh);
     background-color: var(--color-transparent);
     backdrop-filter: blur(20px);
