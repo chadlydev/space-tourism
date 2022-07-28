@@ -128,11 +128,6 @@ export const Wrapper = styled(W)`
             width: 600px;
             height: 600px;
         }
-
-        h5 {
-            top: 206px;
-            left: 0;
-        }
     }
 
     @media screen and ${BREAKPOINTS.xlDesktop} {
