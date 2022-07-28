@@ -128,6 +128,11 @@ export const Wrapper = styled(W)`
             width: 600px;
             height: 600px;
         }
+
+        h5 {
+            top: 206px;
+            left: 0;
+        }
     }
 
     @media screen and ${BREAKPOINTS.xlDesktop} {
@@ -135,6 +140,12 @@ export const Wrapper = styled(W)`
         width: clamp(1200px, 80vw, 1800px);
         margin-inline: auto;
         padding-inline: 0;
+
+        h5 {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
     }
 `;
 export const Flex = styled(motion.div)`
@@ -147,6 +158,7 @@ export const Flex = styled(motion.div)`
         gap: 64px;
     }
 `;
+
 export const FlexColumn = styled(motion.div)`
     display: flex;
     flex-direction: column;
@@ -167,6 +179,7 @@ export const Left = styled.div`
     @media screen and ${BREAKPOINTS.xlDesktop} {
         gap: 90px;
         justify-content: center;
+        align-items: flex-start;
     }
 `;
 export const Right = styled.div`

@@ -38,7 +38,6 @@ const Crew = () => {
                                     exit='exit'
                                 />
                             </AnimatePresence>
-
                             <Divider
                                 variants={line}
                                 initial='initial'

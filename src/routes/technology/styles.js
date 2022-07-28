@@ -92,8 +92,11 @@ export const ContentWrapper = styled.div`
 
     @media screen and ${BREAKPOINTS.xlDesktop} {
         position: relative;
+        width: 100%;
+        justify-content: space-between;
         & ${FlexColumn} {
-            margin-right: 256px;
+            margin-left: -600px;
+            align-self: center;
         }
     }
 `;

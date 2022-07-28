@@ -137,6 +137,14 @@ export const Wrapper = styled(W)`
         width: clamp(1200px, 80vw, 1800px);
         margin-inline: auto;
         padding-inline: 0;
+
+        img {
+            margin: 0;
+            width: auto;
+            height: auto;
+            bottom: -50px;
+            right: -1200px;
+        }
     }
 `;
 export const ContentWrapper = styled.div`
@@ -160,7 +168,9 @@ export const ContentWrapper = styled.div`
         justify-content: space-between;
     }
     @media screen and ${BREAKPOINTS.xlDesktop} {
+        height: fit-content;
         gap: 90px;
         justify-content: center;
+        position: relative;
     }
 `;
