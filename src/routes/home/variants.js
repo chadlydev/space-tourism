@@ -11,7 +11,7 @@ export const title = {
         transition: {
             ...ease,
             duration: 1,
-            delay: 3,
+            delay: 3.6,
         },
     },
     delay: {
@@ -35,7 +35,7 @@ export const otherText = {
         transition: {
             ...ease,
             duration: 1,
-            delay: 3.6,
+            delay: 4.2,
         },
     },
     delay: {
@@ -60,7 +60,7 @@ export const button = {
         transition: {
             ease: [0, 0.71, 0.2, 1.15],
             duration: 1,
-            delay: 3.8,
+            delay: 4.8,
         },
     },
     delay: {

@@ -136,7 +136,7 @@ const navList = {
     animate: {
         ...show,
         transition: {
-            delayChildren: 3,
+            delayChildren: 2.6,
             staggerChildren: 0.2,
         },
     },
