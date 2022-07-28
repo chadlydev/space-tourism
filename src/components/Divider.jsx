@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
+import { motion } from 'framer-motion';
 
-export const Divider = styled.div`
+export const Divider = styled(motion.div)`
     min-height: 1px;
     width: 100%;
     z-index: 5;

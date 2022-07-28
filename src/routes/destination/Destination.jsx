@@ -3,23 +3,16 @@ import { Divider } from '../../components/Divider';
 import useGetData from './useGetData';
 import Background from '../../components/Background';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as variants from './variants';
-import useHistory from '../../hooks/useHistory';
 import { Flex, FlexColumn, Left, NavLink, Right, Wrapper } from './styles';
+import useNextAnimation from '../../hooks/useNextAnimation';
+import { pageTitle } from '../../constants/variants';
 
 const Destination = () => {
     const [currentContent, setCurrentContent] = useState('moon');
-    const [nextAnimation, setNextAnimation] = useState(false);
+    const { nextAnimation } = useNextAnimation('/destination');
     const { data } = useGetData(currentContent);
-    const { history } = useHistory();
-    const pageTitle = `01 Pick your destination`;
-
-    useEffect(() => {
-        if (history.includes('/destination')) {
-            setNextAnimation(true);
-        }
-    }, [history]);
 
     return (
         <>
@@ -27,31 +20,11 @@ const Destination = () => {
                 <Wrapper>
                     <Left>
                         <motion.h5
-                            variants={variants.sentence}
+                            variants={pageTitle}
                             initial='initial'
                             animate='animate'
                         >
-                            {pageTitle.split(' ').map((word, i) => {
-                                if (i === 0) {
-                                    return (
-                                        <motion.span
-                                            variants={variants.words}
-                                            key={word + i}
-                                        >
-                                            {word}
-                                        </motion.span>
-                                    );
-                                } else {
-                                    return (
-                                        <motion.div
-                                            variants={variants.words}
-                                            key={word + i}
-                                        >
-                                            {word}
-                                        </motion.div>
-                                    );
-                                }
-                            })}
+                            <span>01</span>Pick your destination
                         </motion.h5>
                         <AnimatePresence exitBeforeEnter={true}>
                             <motion.img
@@ -60,7 +33,7 @@ const Destination = () => {
                                 key={currentContent}
                                 variants={variants.imgAndTitle}
                                 initial='initial'
-                                animate='animate'
+                                animate={nextAnimation ? 'delay' : 'animate'}
                                 exit='exit'
                             />
                         </AnimatePresence>
@@ -134,7 +107,7 @@ const Destination = () => {
                             <motion.h2
                                 variants={variants.imgAndTitle}
                                 initial='initial'
-                                animate='animate'
+                                animate={nextAnimation ? 'delay' : 'animate'}
                                 exit='exit'
                                 key={currentContent}
                             >
@@ -144,7 +117,7 @@ const Destination = () => {
                         <motion.p
                             variants={variants.paragraph}
                             initial='initial'
-                            animate='animate'
+                            animate={nextAnimation ? 'delay' : 'animate'}
                             key={currentContent}
                         >
                             {data.content}
@@ -152,7 +125,6 @@ const Destination = () => {
 
                         <AnimatePresence exitBeforeEnter={true}>
                             <Divider
-                                as={motion.div}
                                 variants={variants.line}
                                 initial='initial'
                                 animate={nextAnimation ? 'delay' : 'animate'}

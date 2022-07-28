@@ -1,26 +1,43 @@
-import styled from 'styled-components/macro';
 import { Outlet } from 'react-router-dom';
 import Background from '../../components/Background';
-import { BREAKPOINTS } from '../../constants/breakpoints';
 import useGetData from './useGetData';
-import { Wrapper as W } from '../../components/Wrapper';
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import useNextAnimation from '../../hooks/useNextAnimation';
+import {
+    ease,
+    hide,
+    imgAndTitle,
+    otherText,
+    pageTitle,
+    show,
+} from '../../constants/variants';
+import { Circle, ContentWrapper, FlexColumn, Wrapper } from './styles';
 
 const Technology = () => {
     const [currentContent, setCurrentContent] = useState(1);
     const { data } = useGetData(currentContent);
+    const { nextAnimation } = useNextAnimation('/technology');
 
     return (
         <>
             <Background page='technology'>
                 <Wrapper>
                     <ContentWrapper>
-                        <h5>
+                        <motion.h5
+                            variants={pageTitle}
+                            initial='initial'
+                            animate='animate'
+                        >
                             <span>03</span> Space Launch 101
-                        </h5>
+                        </motion.h5>
                         <nav>
-                            <ul>
-                                <li>
+                            <motion.ul
+                                variants={navList}
+                                initial='initial'
+                                animate='animate'
+                            >
+                                <motion.li variants={listItem}>
                                     <Circle
                                         onClick={() => setCurrentContent(1)}
                                         className={
@@ -31,8 +48,8 @@ const Technology = () => {
                                     >
                                         1
                                     </Circle>
-                                </li>
-                                <li>
+                                </motion.li>
+                                <motion.li variants={listItem}>
                                     <Circle
                                         onClick={() => setCurrentContent(2)}
                                         className={
@@ -43,8 +60,8 @@ const Technology = () => {
                                     >
                                         2
                                     </Circle>
-                                </li>
-                                <li>
+                                </motion.li>
+                                <motion.li variants={listItem}>
                                     <Circle
                                         onClick={() => setCurrentContent(3)}
                                         className={
@@ -55,15 +72,55 @@ const Technology = () => {
                                     >
                                         3
                                     </Circle>
-                                </li>
-                            </ul>
+                                </motion.li>
+                            </motion.ul>
                         </nav>
                         <FlexColumn>
-                            <h6>The Terminology...</h6>
-                            <h3>{data.title}</h3>
-                            <p>{data.content}</p>
+                            <motion.h6
+                                variants={otherText}
+                                initial='initial'
+                                animate='animate'
+                            >
+                                The Terminology...
+                            </motion.h6>
+                            <AnimatePresence exitBeforeEnter={true}>
+                                <motion.h3
+                                    key={currentContent}
+                                    variants={imgAndTitle}
+                                    initial='initial'
+                                    animate={
+                                        nextAnimation ? 'delay' : 'animate'
+                                    }
+                                    exit='exit'
+                                >
+                                    {data.title}
+                                </motion.h3>
+                            </AnimatePresence>
+                            <AnimatePresence exitBeforeEnter={true}>
+                                <motion.p
+                                    key={currentContent}
+                                    variants={otherText}
+                                    initial='initial'
+                                    animate={
+                                        nextAnimation ? 'delay' : 'animate'
+                                    }
+                                    exit='exit'
+                                >
+                                    {data.content}
+                                </motion.p>
+                            </AnimatePresence>
                         </FlexColumn>
-                        <img src={data.imageURL} alt={data.title} />
+                        <AnimatePresence exitBeforeEnter={true}>
+                            <motion.img
+                                src={data.imageURL}
+                                alt={data.title}
+                                key={currentContent}
+                                variants={imgAndTitle}
+                                initial='initial'
+                                animate={nextAnimation ? 'delay' : 'animate'}
+                                exit='exit'
+                            />
+                        </AnimatePresence>
                     </ContentWrapper>
                 </Wrapper>
             </Background>
@@ -74,176 +131,22 @@ const Technology = () => {
 
 export default Technology;
 
-const Circle = styled.button`
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    line-height: 36px;
-    background-color: transparent;
-    border: 1px solid var(--color-light-200);
-    color: var(--color-light-100);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all ease-in-out 0.5s;
+const navList = {
+    initial: { ...hide },
+    animate: {
+        ...show,
+        transition: {
+            delayChildren: 3,
+            staggerChildren: 0.2,
+        },
+    },
+};
 
-    @media screen and ${BREAKPOINTS.tablet} {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-    }
-    @media screen and ${BREAKPOINTS.smDesktop} {
-        width: 80px;
-        height: 80px;
-        font-size: 32px;
-
-        &.inactive:hover {
-            border-color: var(--color-light-100);
-        }
-    }
-
-    &.active {
-        background-color: var(--color-light-100);
-        color: var(--color-dark);
-        border: none;
-    }
-`;
-
-const FlexColumn = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-`;
-
-const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    h5 {
-        position: absolute;
-        color: var(--color-light-100);
-        display: flex;
-        gap: 1rem;
-        span {
-            color: var(--color-light-200);
-        }
-    }
-
-    img {
-        margin-top: 51px;
-        position: absolute;
-        width: 100vw;
-    }
-
-    @media screen and ${BREAKPOINTS.tablet} {
-        h5 {
-            top: 142px;
-            left: 5vw;
-        }
-
-        img {
-            margin-top: 130px;
-        }
-    }
-
-    @media screen and ${BREAKPOINTS.smDesktop} {
-        flex-direction: row;
-        gap: 72px;
-
-        img {
-            position: absolute;
-            margin: 0;
-            width: 515px;
-            right: 0;
-        }
-
-        & ${FlexColumn} {
-            align-self: flex-start;
-        }
-    }
-
-    @media screen and ${BREAKPOINTS.xlDesktop} {
-        position: relative;
-        & ${FlexColumn} {
-            margin-right: 256px;
-        }
-    }
-`;
-
-const Wrapper = styled(W)`
-    gap: 32px;
-    height: var(--windowInnerHeight);
-
-    nav {
-        padding-top: 238px;
-    }
-
-    ul {
-        display: flex;
-        list-style: none;
-        gap: 16px;
-    }
-
-    p {
-        width: 39ch;
-    }
-
-    @media screen and ${BREAKPOINTS.tablet} {
-        gap: 40px;
-        p {
-            width: 51ch;
-        }
-
-        h6 {
-            font-size: 16px;
-        }
-        nav {
-            padding-top: 497px;
-        }
-    }
-
-    @media screen and ${BREAKPOINTS.smDesktop} {
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-
-        nav {
-            padding: 0;
-        }
-
-        ul {
-            gap: 32px;
-            flex-direction: column;
-        }
-
-        h5 {
-            top: 206px;
-            left: 10vw;
-        }
-
-        p {
-            width: 43ch;
-        }
-    }
-
-    @media screen and ${BREAKPOINTS.xlDesktop} {
-        align-items: center;
-        width: clamp(1200px, 80vw, 1800px);
-        margin-inline: auto;
-        padding-inline: 0;
-
-        h5 {
-            top: 0;
-            left: 0;
-        }
-
-        img {
-            position: relative;
-            margin: 0;
-            width: 515px;
-            right: 0;
-        }
-    }
-`;
+const listItem = {
+    initial: { ...hide, translateX: -40 },
+    animate: {
+        ...show,
+        translateX: 0,
+        transition: { ...ease, duration: 1 },
+    },
+};

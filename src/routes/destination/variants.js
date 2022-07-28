@@ -1,37 +1,24 @@
-import { hide, show } from '../../constants/variants';
-
-export const sentence = {
-    initial: { ...hide },
-    animate: {
-        ...show,
-        transition: {
-            delay: 1.5,
-            staggerChildren: 0.4,
-        },
-    },
-};
-
-export const words = {
-    initial: { ...hide, translateY: -60 },
-    animate: {
-        ...show,
-        translateY: 0,
-        transition: {
-            duration: 1,
-        },
-    },
-};
+import { ease, hide, show } from '../../constants/variants';
 
 export const imgAndTitle = {
     initial: {
         ...hide,
-        translateY: 20,
+        translateY: 40,
     },
     animate: {
         ...show,
         translateY: 0,
         transition: {
-            ease: [0.17, 0.55, 0.55, 1],
+            ...ease,
+            duration: 1,
+            delay: 1.5,
+        },
+    },
+    delay: {
+        ...show,
+        translateY: 0,
+        transition: {
+            ...ease,
             duration: 1,
             delay: 0.5,
         },
@@ -40,7 +27,7 @@ export const imgAndTitle = {
         ...hide,
         translateY: -20,
         transition: {
-            duration: 0.5,
+            duration: 0.2,
         },
     },
 };
@@ -50,8 +37,8 @@ export const navList = {
     animate: {
         ...show,
         transition: {
-            delayChildren: 2.6,
-            staggerChildren: 0.3,
+            delayChildren: 3.6,
+            staggerChildren: 0.2,
         },
     },
 };
@@ -61,7 +48,7 @@ export const listItem = {
     animate: {
         ...show,
         translateY: 0,
-        transition: { type: 'spring', stiffness: 60 },
+        transition: { ...ease, duration: 1 },
     },
 };
 
@@ -70,7 +57,12 @@ export const paragraph = {
     animate: {
         ...show,
         translateX: 0,
-        transition: { type: 'spring', stiffness: 60, delay: 1.5 },
+        transition: { ...ease, duration: 1, delay: 2.5 },
+    },
+    delay: {
+        ...show,
+        translateX: 0,
+        transition: { ...ease, duration: 1, delay: 1.5 },
     },
 };
 
@@ -102,9 +94,9 @@ export const extraInfo = {
         opacity: 1,
         translateY: 0,
         transition: {
-            type: 'spring',
-            stiffness: 60,
-            delayChildren: 2.6,
+            ...ease,
+            duration: 1,
+            delayChildren: 3.6,
             staggerChildren: 0.6,
         },
     },
@@ -112,10 +104,10 @@ export const extraInfo = {
         opacity: 1,
         translateY: 0,
         transition: {
-            type: 'spring',
-            stiffness: 60,
+            ...ease,
+            duration: 1,
             delayChildren: 2.2,
-            staggerChildren: 0.3,
+            staggerChildren: 0.2,
         },
     },
 };

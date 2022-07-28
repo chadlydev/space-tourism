@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { BREAKPOINTS } from '../constants/breakpoints';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const variants = {
     initial: {
@@ -16,9 +16,16 @@ const variants = {
 
 const Background = ({ children, page }) => {
     return (
-        <Bg variants={variants} initial='initial' animate='animate' page={page}>
-            {children}
-        </Bg>
+        <AnimatePresence exitBeforeEnter={false}>
+            <Bg
+                variants={variants}
+                initial='initial'
+                animate='animate'
+                page={page}
+            >
+                {children}
+            </Bg>
+        </AnimatePresence>
     );
 };
 

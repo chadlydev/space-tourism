@@ -1,16 +1,16 @@
-import { hide, show } from '../../constants/variants';
+import { ease, hide, show } from '../../constants/variants';
 
 export const logo = {
     initial: {
         ...hide,
-        translateX: -80,
+        translateX: -40,
     },
     animate: {
         ...show,
         translateX: 0,
         transition: {
-            type: 'spring',
-            stiffness: 60,
+            ...ease,
+            duration: 1,
             delay: 2.8,
         },
     },
@@ -63,7 +63,7 @@ export const listItem = {
     animate: {
         ...show,
         translateY: 0,
-        transition: { type: 'spring', stiffness: 60 },
+        transition: { ...ease, duration: 1 },
     },
 };
 

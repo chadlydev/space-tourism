@@ -1,4 +1,4 @@
-import { hide, show } from '../../constants/variants';
+import { ease, hide, show } from '../../constants/variants';
 
 export const title = {
     initial: {
@@ -9,8 +9,8 @@ export const title = {
         ...show,
         translateY: 0,
         transition: {
+            ...ease,
             duration: 1,
-            ease: 'easeInOut',
             delay: 3,
         },
     },
@@ -18,8 +18,8 @@ export const title = {
         ...show,
         translateY: 0,
         transition: {
+            ...ease,
             duration: 1,
-            ease: 'easeInOut',
         },
     },
 };
@@ -33,8 +33,8 @@ export const otherText = {
         ...show,
         translateX: 0,
         transition: {
+            ...ease,
             duration: 1,
-            ease: 'easeInOut',
             delay: 3.6,
         },
     },
@@ -42,8 +42,8 @@ export const otherText = {
         ...show,
         translateX: 0,
         transition: {
+            ...ease,
             duration: 1,
-            ease: 'easeInOut',
             delay: 0.6,
         },
     },
@@ -68,7 +68,7 @@ export const button = {
         scale: 1,
         transition: {
             ease: [0, 0.71, 0.2, 1.15],
-            duration: 0.8,
+            duration: 1,
             delay: 1.2,
         },
     },
